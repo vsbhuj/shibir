@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#7c1d1d">
+<title>સ્વામિનારાયણ મહામંત્ર શિબિર ૨૦૨૬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700;800&family=Hind+Vadodara:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#e8590c; --saffron-d:#c2410c; --maroon:#7c1d1d; --gold:#f5b301;
+  --cream:#fff8ef; --card:#ffffff; --ink:#2b1a12; --muted:#8a6f5e; --line:#f0dfcc;
+  --ok:#2f9e44; --shadow:0 6px 20px rgba(124,29,29,.10);
+  --navh:66px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:"Noto Sans Gujarati","Hind Vadodara",system-ui,sans-serif;background:var(--cream);color:var(--ink);padding-bottom:calc(var(--navh) + 14px + env(safe-area-inset-bottom));
+  background-image:radial-gradient(circle at 10% 0%,#ffe8cc 0,transparent 40%),radial-gradient(circle at 100% 30%,#fff0d6 0,transparent 35%);background-attachment:fixed}
+button{font-family:inherit;cursor:pointer}
+/* ---------- Top bar ---------- */
+.topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top));
+  background:linear-gradient(90deg,var(--maroon),#a4161a 60%,var(--saffron));color:#fff;box-shadow:0 4px 18px rgba(124,29,29,.25)}
+.brand{display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer}
+.brand .logo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,214,102,.6);display:grid;place-items:center;font-size:19px;flex:none}
+.brand b{display:block;font-size:16px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;font-size:11px;opacity:.85;color:#ffe8a3}
+.tbtn{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.14);color:#fff;border-radius:12px;padding:7px 10px;font-weight:700;font-size:13px;white-space:nowrap}
+.tbtn.xl{background:#2f9e44;border-color:#2f9e44}
+.deskNav{display:none;gap:4px;margin:0 8px}
+.deskNav button{border:none;background:transparent;color:#ffe8d0;padding:8px 12px;border-radius:10px;font-weight:700;font-size:14px}
+.deskNav button.on{background:rgba(255,255,255,.2);color:#fff}
+@media(min-width:900px){.deskNav{display:flex}.bnav{display:none!important}body{padding-bottom:30px}}
+/* ---------- Bottom nav ---------- */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  box-shadow:0 -6px 20px rgba(0,0,0,.07);padding-bottom:env(safe-area-inset-bottom)}
+.bnav button{border:none;background:none;height:var(--navh);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--muted);font-size:11.5px;font-weight:700;position:relative}
+.bnav button .i{font-size:21px;line-height:1;transition:transform .2s}
+.bnav button.on{color:var(--maroon)}
+.bnav button.on .i{transform:translateY(-2px) scale(1.12)}
+.bnav button.on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--gold),var(--saffron))}
+.bnav .menuBtn .i{width:44px;height:44px;margin-top:-22px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--saffron));box-shadow:0 6px 16px rgba(232,89,12,.45);border:3px solid #fff;font-size:22px}
+.bnav .menuBtn.on .i{transform:scale(1.08)}
+.bnav .menuBtn.on::before{display:none}
+/* ---------- Layout ---------- */
+main{max-width:980px;margin:0 auto;padding:0 14px}
+.panel{display:none}.panel.on{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ptitle{display:flex;align-items:center;gap:10px;margin:18px 0 6px}
+.ptitle .pi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,var(--maroon),var(--saffron));color:#fff;box-shadow:0 4px 12px rgba(124,29,29,.25)}
+.ptitle h2{margin:0;font-size:21px;color:var(--maroon)}
+.ptitle p{margin:0;font-size:12.5px;color:var(--muted)}
+/* ---------- Hero (home) ---------- */
+.hero{margin:0 -14px;background:linear-gradient(135deg,var(--maroon) 0%,#a4161a 45%,var(--saffron) 100%);color:#fff;padding:28px 18px 80px;position:relative;overflow:hidden;text-align:center}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;border:2px solid rgba(255,214,102,.25)}
+.hero::before{width:300px;height:300px;right:-90px;top:-110px}
+.hero::after{width:200px;height:200px;left:-70px;bottom:-80px}
+.hero .mandala{position:absolute;inset:0;opacity:.10;background:repeating-conic-gradient(from 0deg,#fff 0 6deg,transparent 6deg 18deg);mask:radial-gradient(circle at 50% 120%,#000 0,transparent 70%);-webkit-mask:radial-gradient(circle at 50% 120%,#000 0,transparent 70%)}
+.om{font-size:40px;line-height:1;filter:drop-shadow(0 3px 8px rgba(0,0,0,.25))}
+.hero h1{margin:8px 0 4px;font-size:clamp(23px,6vw,38px);font-weight:800;position:relative}
+.hero p{margin:0;opacity:.92;font-size:14.5px;position:relative}
+.mantra{display:inline-block;margin-top:12px;padding:6px 16px;border-radius:30px;background:rgba(255,255,255,.14);border:1px solid rgba(255,214,102,.5);color:#ffe8a3;font-weight:700;font-size:15px;position:relative}
+.datepill{display:inline-flex;gap:8px;align-items:center;margin-top:12px;background:#fff;color:var(--maroon);padding:7px 16px;border-radius:30px;font-weight:800;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.18);position:relative}
+.countdown{margin-top:10px;font-size:13.5px;color:#ffe8a3;font-weight:700;position:relative}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-54px auto 0;position:relative;z-index:2;max-width:760px}
+.stat{background:var(--card);border-radius:16px;padding:12px 8px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--line)}
+.stat b{display:block;font-size:24px;color:var(--maroon);font-weight:800}
+.stat span{font-size:12px;color:var(--muted)}
+.bar{height:6px;background:#f6e6d4;border-radius:6px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--saffron));border-radius:6px;transition:width .5s}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}
+.sec-h h3{margin:0;font-size:17px;color:var(--maroon)}
+.link{border:none;background:none;color:var(--saffron-d);font-weight:700;font-size:13.5px}
+.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.quick{grid-template-columns:repeat(4,1fr)}}
+.qt{border:none;text-align:left;border-radius:18px;padding:14px;color:#fff;min-height:104px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.qt::after{content:"";position:absolute;right:-20px;bottom:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.15)}
+.qt .e{font-size:28px}
+.qt b{font-size:15.5px}
+.qt small{display:block;font-size:12px;opacity:.9;font-weight:600}
+.q1{background:linear-gradient(135deg,#7c1d1d,#c2410c)}
+.q2{background:linear-gradient(135deg,#e8590c,#f59f00)}
+.q3{background:linear-gradient(135deg,#2b8a3e,#66a80f)}
+.q4{background:linear-gradient(135deg,#5f3dc4,#c2255c)}
+/* ---------- Generic cards ---------- */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+.hint{font-size:13px;color:var(--muted);flex:1;min-width:180px}
+.btn{border-radius:12px;padding:9px 14px;font-weight:700;font-size:14px;background:#fff;color:var(--maroon);border:1.5px solid var(--line)}
+.btn.pri{background:linear-gradient(135deg,var(--saffron),var(--saffron-d));color:#fff;border-color:transparent}
+.btn.green{background:linear-gradient(135deg,#2f9e44,#1b6e2e);color:#fff;border-color:transparent}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+.card-h{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(90deg,#fff3e3,#fff);border-bottom:1px dashed var(--line)}
+.ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:linear-gradient(135deg,#ffe3bf,#ffd08a);flex:none}
+.room-no{font-weight:800;color:#fff;background:linear-gradient(135deg,var(--maroon),var(--saffron));font-size:18px}
+.card-h h3{margin:0;font-size:16px;flex:1;line-height:1.3}
+.cnt{font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px;background:#fff0e0;color:var(--saffron-d);white-space:nowrap}
+.cnt.zero{background:#f1f1f1;color:#999}
+.card-b{padding:10px 12px 12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fffaf3;border:1px solid var(--line);border-radius:20px;padding:4px 6px 4px 9px;font-size:13px}
+.chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.chip .x{border:none;background:#f6e2cf;color:var(--maroon);width:20px;height:20px;border-radius:50%;font-size:13px;line-height:1;padding:0}
+.empty{font-size:13px;color:#b49a88;padding:4px 2px}
+.add{margin-top:10px;width:100%;border:1.5px dashed var(--saffron);background:#fff7ef;color:var(--saffron-d);border-radius:12px;padding:9px;font-weight:700;font-size:14px}
+.edit{border:none;background:transparent;font-size:15px;opacity:.6;padding:2px 4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--muted);margin:0 0 12px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+/* Mandal overview (home) */
+.mrow{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #f7ece0}
+.mrow:last-child{border-bottom:none}
+.mrow .bul{width:12px;height:12px;border-radius:50%;flex:none}
+.mrow .t{flex:1;font-size:14px;font-weight:600}
+.mrow .bar{width:90px;margin:0}
+.mrow small{font-size:12px;color:var(--muted);width:40px;text-align:right}
+/* Summary */
+.mand{margin-bottom:12px}
+.mand .card-h{cursor:pointer}
+.srow{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;padding:9px 12px;border-bottom:1px solid #f7ece0}
+.srow:last-child{border-bottom:none}
+.srow .n{font-size:12px;color:var(--muted);text-align:center;font-weight:700}
+.srow .nm{font-size:14px;font-weight:600}
+.srow .sv{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.mini{font-size:11px;background:#fff1e0;color:var(--saffron-d);padding:2px 7px;border-radius:10px}
+.mini.none{background:#fdecec;color:#c92a2a}
+.ctr{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+select.rsel{font-family:inherit;font-size:13px;padding:5px 6px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--maroon);font-weight:700}
+select.rsel.unset{border-color:#ffc9c9;color:#c92a2a}
+.filter{display:flex;gap:6px;margin-bottom:10px}
+.filter button{flex:1}
+.filter .on{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+/* ---------- MENU ---------- */
+.menu-hero{margin:14px 0 4px;border-radius:22px;padding:18px;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#5c1414,#a4161a 50%,#e8590c);box-shadow:0 10px 28px rgba(124,29,29,.3)}
+.menu-hero::after{content:"🍛";position:absolute;right:-6px;bottom:-14px;font-size:96px;opacity:.18;transform:rotate(-12deg)}
+.menu-hero h2{margin:0;font-size:22px}
+.menu-hero p{margin:4px 0 0;font-size:13px;color:#ffe8a3}
+.seg{display:flex;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:4px;margin:14px 0 10px}
+.seg button{flex:1;border:none;background:none;padding:8px;border-radius:10px;font-weight:700;color:var(--muted);font-size:13.5px}
+.seg button.on{background:var(--maroon);color:#fff}
+.days{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.days::-webkit-scrollbar{display:none}
+.day{flex:none;scroll-snap-align:start;width:76px;border:1.5px solid var(--line);background:#fff;border-radius:18px;padding:8px 4px;text-align:center;position:relative;transition:.2s}
+.day .dn{font-size:11.5px;color:var(--muted);font-weight:700}
+.day .dd{font-size:26px;font-weight:800;color:var(--maroon);line-height:1.15}
+.day .dm{font-size:11px;color:var(--muted)}
+.day.on{background:linear-gradient(160deg,var(--maroon),var(--saffron));border-color:transparent;box-shadow:0 6px 16px rgba(232,89,12,.35)}
+.day.on .dn,.day.on .dd,.day.on .dm{color:#fff}
+.day .today{position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;font-size:10px;padding:1px 7px;border-radius:10px;font-weight:700;white-space:nowrap}
+.dayhead{display:flex;align-items:baseline;justify-content:space-between;margin:6px 2px 10px}
+.dayhead h3{margin:0;font-size:18px;color:var(--maroon)}
+.dayhead span{font-size:12.5px;color:var(--muted)}
+.meals{display:grid;gap:14px}
+@media(min-width:800px){.meals{grid-template-columns:repeat(3,1fr)}}
+.meal{border-radius:22px;overflow:hidden;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column}
+.meal-h{padding:14px 16px;display:flex;align-items:center;gap:12px;color:#fff;position:relative;overflow:hidden}
+.meal-h::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.14)}
+.meal-h .mi{font-size:30px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+.meal-h b{font-size:18px;display:block}
+.meal-h small{font-size:12px;opacity:.9}
+.meal-h .ed{margin-left:auto;border:none;background:rgba(255,255,255,.22);color:#fff;border-radius:10px;padding:5px 9px;font-size:12px;font-weight:700;position:relative;z-index:1}
+.mh-m{background:linear-gradient(135deg,#f59f00,#f76707)}
+.mh-n{background:linear-gradient(135deg,#e8590c,#c2255c)}
+.mh-e{background:linear-gradient(135deg,#5f3dc4,#7c1d1d)}
+.meal-b{padding:12px 14px;flex:1}
+.items{display:flex;flex-wrap:wrap;gap:7px}
+.item{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:14px;background:#fff7ec;border:1px solid #f6e0c4;font-size:14px;font-weight:600}
+.item .ie{font-size:17px}
+.item.sk{flex-basis:100%;background:linear-gradient(90deg,#ebfbee,#fff);border-color:#b2f2bb;color:#2b8a3e}
+.item.sk small{font-weight:600;color:#495057}
+.item.sw{background:linear-gradient(90deg,#fff0f6,#fff);border-color:#fcc2d7;color:#a61e4d}
+.nomeal{display:flex;align-items:center;gap:8px;color:#b49a88;font-size:14px;padding:6px 0}
+.servers{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+.servers .lb{font-size:11.5px;color:var(--muted);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.srv{font-size:12.5px;margin:3px 0;line-height:1.5}
+.srv b{color:var(--saffron-d)}
+.srv .no{color:#c92a2a}
+.tbl-wrap{overflow-x:auto;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
+table.mt{border-collapse:collapse;min-width:720px;width:100%;font-size:13.5px}
+table.mt th{background:linear-gradient(135deg,var(--maroon),var(--saffron-d));color:#fff;padding:11px 10px;text-align:center;font-size:15px}
+table.mt td{border-top:1px solid #f3e4d3;padding:10px;vertical-align:top;line-height:1.55}
+table.mt td+td{border-left:1px solid #f3e4d3}
+table.mt td.dt{position:sticky;left:0;background:#fff8ef;font-weight:800;color:var(--maroon);white-space:nowrap;text-align:center}
+table.mt td.dt small{display:block;font-weight:600;color:var(--muted);font-size:11.5px}
+table.mt tr.today td{background:#f4fce3}
+table.mt .sk{color:#2b8a3e;font-weight:700}
+.note{margin:14px 2px 0;font-size:12.5px;color:var(--muted);text-align:center}
+/* footer */
+footer{text-align:center;margin:30px 0 10px;color:var(--muted);font-size:12.5px}
+footer b{display:block;color:var(--maroon);font-size:15px;margin-bottom:2px}
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(43,26,18,.5);z-index:60;display:none;align-items:flex-end;justify-content:center}
+.overlay.on{display:flex;animation:fade .2s}
+.sheet{background:#fff;width:100%;max-width:640px;max-height:90vh;border-radius:22px 22px 0 0;display:flex;flex-direction:column;animation:up .25s ease-out}
+@media(min-width:700px){.overlay{align-items:center}.sheet{border-radius:22px;max-height:85vh}}
+@keyframes up{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
+.sheet-h{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.sheet-h h2{margin:0;font-size:18px;color:var(--maroon)}
+.sheet-h p{margin:2px 0 8px;font-size:12px;color:var(--muted)}
+.search{width:100%;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);font-family:inherit;font-size:14px;outline:none}
+.search:focus{border-color:var(--saffron)}
+textarea.search{min-height:110px;resize:vertical;line-height:1.6}
+.sheet-b{overflow-y:auto;padding:10px 12px;flex:1}
+.acc{border:1.5px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.acc-h{display:flex;align-items:center;gap:10px;padding:11px 12px;background:#fffaf3;cursor:pointer;user-select:none}
+.acc-h .bul{width:12px;height:12px;border-radius:50%;flex:none}
+.acc-h .t{flex:1;font-weight:700;font-size:14.5px}
+.acc-h .s{font-size:12px;color:var(--muted);white-space:nowrap}
+.acc-h .arr{transition:transform .2s;color:var(--muted);font-size:12px}
+.acc.open .arr{transform:rotate(90deg)}
+.acc-b{display:none;border-top:1px solid var(--line)}
+.acc.open .acc-b{display:block}
+.all{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#fff3e3;font-size:13px}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #f8eee4;cursor:pointer}
+.opt:last-child{border-bottom:none}
+.box{width:22px;height:22px;border-radius:7px;border:2px solid #d9c2ad;display:grid;place-items:center;flex:none;transition:.15s;color:#fff;font-size:14px}
+.opt.sel{background:#fff6ec}
+.opt.sel .box{background:var(--saffron);border-color:var(--saffron)}
+.opt .on{flex:1;font-size:14px}
+.tag{font-size:11px;padding:2px 7px;border-radius:10px;background:#eef2ff;color:#3b5bdb;white-space:nowrap}
+.tag.busy{background:#fff4e6;color:#d9480f}
+.sheet-f{display:flex;gap:8px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.sheet-f .btn{flex:1}
+.toast{position:fixed;left:50%;bottom:calc(var(--navh) + 22px);transform:translateX(-50%) translateY(20px);background:var(--maroon);color:#fff;padding:10px 18px;border-radius:30px;font-size:14px;opacity:0;transition:.3s;z-index:70;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%)}
+#printArea{display:none}
+@media print{
+  body{background:#fff;padding:0}
+  .topbar,.bnav,main,.overlay,.toast{display:none!important}
+  #printArea{display:block;font-size:12px}
+  #printArea h2{color:#7c1d1d;margin:14px 0 6px;font-size:16px}
+  #printArea table{width:100%;border-collapse:collapse;margin-bottom:8px}
+  #printArea td,#printArea th{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}
+  #printArea th{background:#fde4c8}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand" onclick="go('home')">
+    <div class="logo">🪷</div>
+    <div style="min-width:0"><b>મહામંત્ર શિબિર</b><small>૧૪ થી ૧૯ નવેમ્બર ૨૦૨૬</small></div>
+  </div>
+  <nav class="deskNav" id="deskNav"></nav>
+  <button class="tbtn prt" onclick="doPrint()" data-p="1" title="પ્રિન્ટ">🖨️</button>
+  <button class="tbtn xl" onclick="exportXlsx()">📊 Excel</button>
+</header>
+
+<main>
+  <!-- ================= HOME ================= -->
+  <section class="panel on" id="p-home">
+    <div class="hero">
+      <div class="mandala"></div>
+      <div class="om">🪷</div>
+      <h1>સ્વામિનારાયણ મહામંત્ર શિબિર</h1>
+      <p>શિબિરમાં પધારનારા સંતો • રૂમ, સેવા અને ભોજન વ્યવસ્થા</p>
+      <div class="mantra">॥ સ્વામિનારાયણ સ્વામિનારાયણ ॥</div><br>
+      <div class="datepill">📅 ૧૪ – ૧૯ નવેમ્બર ૨૦૨૬</div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="stTotal">0</b><span>કુલ સંતો</span></div>
+      <div class="stat"><b id="stRoom">0</b><span>રૂમ ફાળવાયા</span><div class="bar"><i id="brRoom"></i></div></div>
+      <div class="stat"><b id="stSeva">0</b><span>સેવા ફાળવાઈ</span><div class="bar"><i id="brSeva"></i></div></div>
+    </div>
+
+    <div class="sec-h"><h3>ઝડપી વિભાગો</h3></div>
+    <div class="quick">
+      <button class="qt q1" onclick="go('rooms')"><span class="e">🛏️</span><div><b>રૂમ ફાળવણી</b><small>૧૦ રૂમ</small></div></button>
+      <button class="qt q2" onclick="go('sevas')"><span class="e">🍽️</span><div><b>રસોડા સેવા</b><small id="qSeva"></small></div></button>
+      <button class="qt q3" onclick="go('menu')"><span class="e">🍛</span><div><b>ભોજન મેનૂ</b><small>૬ દિવસ</small></div></button>
+      <button class="qt q4" onclick="go('summary')"><span class="e">📋</span><div><b>સંત યાદી</b><small>૮ મંડળ</small></div></button>
+    </div>
+
+    <div class="sec-h"><h3 id="homeMenuTitle">🍛 આજનું મેનૂ</h3><button class="link" onclick="go('menu')">આખું મેનૂ →</button></div>
+    <div class="card"><div class="card-b" id="homeMenu"></div></div>
+
+    <div class="sec-h"><h3>🙏 મંડળ પ્રમાણે સ્થિતિ</h3><button class="link" onclick="go('summary')">વિગત →</button></div>
+    <div class="card" id="homeMandals"></div>
+
+    <div class="sec-h"><h3>⚙️ રિપોર્ટ</h3></div>
+    <div class="toolbar">
+      <button class="btn green" onclick="exportXlsx()">📊 Excel ડાઉનલોડ</button>
+      <button class="btn prt" onclick="doPrint()" data-p="1">🖨️ પ્રિન્ટ</button>
+      <button class="btn" onclick="resetAll()">↺ ફાળવણી રીસેટ</button>
+    </div>
+    <footer><b>|| જય સ્વામિનારાયણ ||</b>સ્વામિનારાયણ મહામંત્ર શિબિર – વ્યવસ્થા</footer>
+  </section>
+
+  <!-- ================= ROOMS ================= -->
+  <section class="panel" id="p-rooms">
+    <div class="ptitle"><div class="pi">🛏️</div><div><h2>રૂમ ફાળવણી</h2><p>રૂમ નં. ૧ થી ૧૦</p></div></div>
+    <div class="toolbar">
+      <div class="hint" id="roomHint"></div>
+      <button class="btn sm" onclick="autoRooms()">✨ બાકી સંતો ઓટો ફાળવો</button>
+    </div>
+    <div class="legend lg"></div>
+    <div class="grid" id="roomGrid"></div>
+  </section>
+
+  <!-- ================= SEVAS ================= -->
+  <section class="panel" id="p-sevas">
+    <div class="ptitle"><div class="pi">🍽️</div><div><h2>રસોડું / સેવા ફાળવણી</h2><p>એક સંતને એકથી વધુ સેવા આપી શકાય</p></div></div>
+    <div class="toolbar">
+      <div class="hint">સેવા પર “+ સંતો ઉમેરો” દબાવો → મંડળ ખોલો → સંતો પસંદ કરો.</div>
+      <button class="btn sm" onclick="addSeva()">➕ નવી સેવા</button>
+    </div>
+    <div class="legend lg"></div>
+    <div class="grid" id="sevaGrid"></div>
+  </section>
+
+  <!-- ================= SUMMARY ================= -->
+  <section class="panel" id="p-summary">
+    <div class="ptitle"><div class="pi">📋</div><div><h2>સંત પ્રમાણે યાદી</h2><p>દરેક સંતનો રૂમ અને સેવા અહીંથી પણ બદલી શકાય</p></div></div>
+    <div class="filter">
+      <button class="btn sm on" data-f="all">બધા સંતો</button>
+      <button class="btn sm" data-f="noroom">રૂમ બાકી</button>
+      <button class="btn sm" data-f="noseva">સેવા બાકી</button>
+    </div>
+    <div id="summaryList"></div>
+  </section>
+
+  <!-- ================= MENU ================= -->
+  <section class="panel" id="p-menu">
+    <div class="menu-hero">
+      <h2>🍛 ભોજન મેનૂ</h2>
+      <p>૧૪ થી ૧૯ નવેમ્બર ૨૦૨૬ • સવાર • બપોર • સાંજ</p>
+    </div>
+    <div class="seg">
+      <button class="on" data-v="day" onclick="setMenuView('day')">📅 દિવસ પ્રમાણે</button>
+      <button data-v="table" onclick="setMenuView('table')">🗂️ આખું ટેબલ</button>
+    </div>
+    <div id="menuDay">
+      <div class="days" id="days"></div>
+      <div class="dayhead"><h3 id="dayTitle"></h3><span id="daySub"></span></div>
+      <div class="meals" id="meals"></div>
+    </div>
+    <div id="menuTable" style="display:none"></div>
+    <p class="note">દરેક ભોજન પર ✏️ દબાવીને મેનૂ સુધારી શકાય છે. Excel માં “ભોજન મેનૂ” શીટ પણ આવશે.</p>
+  </section>
+</main>
+
+<nav class="bnav" id="bnav">
+  <button data-tab="home" class="on"><span class="i">🏠</span>હોમ</button>
+  <button data-tab="rooms"><span class="i">🛏️</span>રૂમ</button>
+  <button data-tab="menu" class="menuBtn"><span class="i">🍛</span>મેનૂ</button>
+  <button data-tab="sevas"><span class="i">🍽️</span>સેવા</button>
+  <button data-tab="summary"><span class="i">📋</span>સંતો</button>
+</nav>
+
+<div class="overlay" id="ov">
+  <div class="sheet">
+    <div class="sheet-h">
+      <h2 id="pkTitle"></h2>
+      <p id="pkSub"></p>
+      <input class="search" id="pkSearch" placeholder="🔍 સંતનું નામ શોધો..." oninput="renderPicker()">
+    </div>
+    <div class="sheet-b" id="pkBody"></div>
+    <div class="sheet-f">
+      <button class="btn" onclick="closePicker()">રદ કરો</button>
+      <button class="btn pri" id="pkSave" onclick="savePicker()">સાચવો</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="dlg" style="z-index:65">
+  <div class="sheet" style="max-width:440px">
+    <div class="sheet-h"><h2 id="dlgTitle"></h2><p id="dlgMsg" style="font-size:14px;color:var(--ink);margin:6px 0"></p>
+      <input class="search" id="dlgInput" style="display:none"></div>
+    <div class="sheet-f"><button class="btn" id="dlgNo">રદ કરો</button><button class="btn pri" id="dlgYes">બરાબર</button></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div id="printArea"></div>
+
+<script>
+/* ===================== DATA ===================== */
+const MANDALS = [
+  {id:'m1', name:'દેવકૃષ્ણસ્વામી મંડળ', color:'#e8590c', saints:[
+    'સ્વામી કુંજવિહારીદાસજી','સ્વામી ઘનશ્યામનંદનદાસજી','સ્વામી રામકૃષ્ણદાસજી','સ્વામી પતિતપાવનદાસજી','સ્વામી મુકુંદદાસજી','સ્વામી રામદાસજી']},
+  {id:'m2', name:'પૂજ્ય ઉપમહંત સ્વામી', color:'#7048e8', saints:[
+    'સ્વામી સંતસ્વરૂપદાસજી','સ્વામી કપિલમુનિદાસજી','સ્વામી હૃદયપ્રકાશદાસજી','સ્વામી વેદપ્રકાશદાસજી','સ્વામી વાત્સલ્યમુનિદાસજી','પાર્ષદ સંજય ભગત']},
+  {id:'m3', name:'મહંત સ્વામી મંડળ', color:'#c2255c', saints:[
+    'સ.ગુ. સ્વામી મુક્તવલ્લભદાસજી','સ્વામી ઘનશ્યામસ્વરૂપદાસજી','સ્વામી હરિમુકુંદદાસજી','સ્વામી ઘનશ્યામપ્રસાદદાસજી','સ્વામી શ્યામકૃષ્ણદાસજી','સ્વામી ધર્મકિશોરદાસજી','સ્વામી ન્યાલકરણદાસજી','સ્વામી હરિપ્રિયદાસજી','સ્વામી હરિવત્સલદાસજી','સ્વામી બાલમુકુંદદાસજી','સ્વામી ભક્તિવલ્લભદાસજી','સ્વામી ભગવાનદાસજી','સ્વામી માધવજીવનદાસજી']},
+  {id:'m4', name:'દેવપ્રકાશદાસજી સ્વામી મંડળ', color:'#1c7ed6', saints:[
+    'સ્વામી કૃષ્ણપ્રકાશદાસજી','સ્વામી જ્ઞાનપ્રકાશદાસજી','સ્વામી મોરલીમનોહરદાસજી','સ્વામી હરિપ્રસાદદાસજી','સ્વામી આનંદપ્રકાશદાસજી']},
+  {id:'m5', name:'બાલકૃષ્ણદાસજી સ્વામી મંડળ', color:'#2f9e44', saints:[
+    'સ્વામી રાઘવમુનિદાસજી','સદ. સ્વામી શ્રીપ્રકાશદાસજી','સ્વામી નૌત્તમમુનિદાસજી','સ્વામી વિજ્ઞાનસ્વરૂપદાસજી','સ્વામી રામાનુજદાસજી','સ્વામી ચૈતન્યમુનિદાસજી','સ્વામી વિવેકમુનિદાસજી','પાર્ષદ યોગેશ ભગત']},
+  {id:'m6', name:'ગોલોકવિહારીદાસજી સ્વામી મંડળ', color:'#f08c00', saints:[
+    'શા. સ્વામી ગોલોકવિહારીદાસજી','સ્વામી હરિસ્વરૂપદાસજી','સ્વામી આનંદસ્વરૂપદાસજી','સ્વામી ધ્યાનસ્વરૂપદાસજી','સ્વામી સંતદાસજી','સ્વામી યોગેશ્વરદાસજી','સ્વામી વિશ્વસ્વરૂપદાસજી','સ્વામી ધ્યાનપ્રિયદાસજી','સ્વામી પુરૂષોત્તમદાસજી']},
+  {id:'m7', name:'લક્ષ્મીપ્રસાદદાસજી સ્વામી મંડળ', color:'#0c8599', saints:[
+    'સ્વામી વિષ્ણુચરણદાસજી','સ્વામી નિર્ભયસ્વરૂપદાસજી','સ્વામી નિર્ભયજીવનદાસજી']},
+  {id:'m8', name:'કેશવજીવનદાસજી સ્વામી મંડળ', color:'#862e9c', saints:[
+    'સ્વામી વ્યાસસ્વરૂપદાસજી','સ્વામી નીલકંઠજીવનદાસજી']},
+];
+const DEFAULT_SEVAS = [
+  {id:'s1', name:'સવારે નાસ્તો', icon:'🌅'},
+  {id:'s2', name:'બપોરે રોટલી', icon:'🫓'},
+  {id:'s3', name:'બપોરે દાળ-ભાત-ખીચડી', icon:'🍚'},
+  {id:'s4', name:'બપોરે શાક', icon:'🥘'},
+  {id:'s5', name:'ચાર વાગ્યે મેળવો', icon:'☕'},
+  {id:'s6', name:'સાંજે રોટલી', icon:'🫓'},
+  {id:'s7', name:'સાંજે શાક', icon:'🥘'},
+  {id:'s8', name:'સાંજે ખીચડી', icon:'🍲'},
+  {id:'s9', name:'છાશ-દૂધ', icon:'🥛'},
+  {id:'s10', name:'પૂજારી સંતો', icon:'🪔'},
+];
+const NASTO_A = 'સામો, કઢી, ફ્રૂટ, સુકું ફરસાણ';
+const NASTO_B = 'સાબુદાણા, કઢી, ફ્રૂટ, સુકું ફરસાણ';
+const BAPOR = 'રોટલી, દાળ, ભાત, ખીચડી, ફરસાણ, મિષ્ટાન્ન';
+const DEFAULT_MENU = [
+  {d:'2026-11-14', m:'', n:'', e:'રોટલી, ખીચડી, શાક'},
+  {d:'2026-11-15', m:NASTO_A, n:BAPOR+', શાક (દૂધી દાળ અને વઘારેલા મગ)', e:'રોટલી, ખીચડી, કઢી, શાક (ભીંડા)'},
+  {d:'2026-11-16', m:NASTO_B, n:BAPOR+', શાક (ગોલા, કાબુલી ચણા)', e:'ભાખરી, ખીચડી, કઢી, શાક (ગલકી)'},
+  {d:'2026-11-17', m:NASTO_A, n:BAPOR+', શાક (પપૈયા, લચકો દાળ)', e:'રોટલા, ખીચડી, કઢી, શાક (લાલ ગાજર)'},
+  {d:'2026-11-18', m:NASTO_B, n:BAPOR+', શાક (ઘીસોડી, દેસી ચણા)', e:'રોટલી, ખીચડી, શાક (પાલક)'},
+  {d:'2026-11-19', m:NASTO_A, n:BAPOR+', શાક (કારેલા, ચોરા)', e:''},
+];
+const MEALS = [
+  {k:'m', name:'સવાર', sub:'નાસ્તો', icon:'🌅', cls:'mh-m', sevas:['s1','s9']},
+  {k:'n', name:'બપોર', sub:'ભોજન', icon:'☀️', cls:'mh-n', sevas:['s2','s3','s4']},
+  {k:'e', name:'સાંજ', sub:'ભોજન', icon:'🌙', cls:'mh-e', sevas:['s6','s7','s8']},
+];
+const ROOMS = 10;
+const GU_DAYS = ['રવિવાર','સોમવાર','મંગળવાર','બુધવાર','ગુરુવાર','શુક્રવાર','શનિવાર'];
+const GU_MON = ['જાન્યુઆરી','ફેબ્રુઆરી','માર્ચ','એપ્રિલ','મે','જૂન','જુલાઈ','ઓગસ્ટ','સપ્ટેમ્બર','ઓક્ટોબર','નવેમ્બર','ડિસેમ્બર'];
+const gu = n => String(n).replace(/\d/g, d => '૦૧૨૩૪૫૬૭૮૯'[d]);
+
+const SAINTS = []; const SMAP = {}; const MMAP = {};
+let serial = 0;
+MANDALS.forEach(m => { MMAP[m.id] = m; m.saints.forEach((n,i) => {
+  const s = {id:m.id+'_'+(i+1), no:i+1, sr:++serial, name:n, mandal:m.id};
+  SAINTS.push(s); SMAP[s.id] = s; }); });
+
+/* ===================== STATE ===================== */
+const KEY = 'mahamantraShibir_v1';
+let state = load();
+function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:{}, menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
+function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return fresh(); }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const short = n => n.replace(/^સ્વામી\s+/, '');
+const inRoom = r => SAINTS.filter(s => state.rooms[s.id] == r);
+const sevaMembers = id => (state.sevas[id] || []).filter(x => SMAP[x]).map(x => SMAP[x]).sort((a,b)=>a.sr-b.sr);
+const sevasOf = sid => state.sevaList.filter(sv => (state.sevas[sv.id]||[]).includes(sid));
+function uiDialog(title,msg,input){
+  return new Promise(res=>{
+    const ov=document.getElementById('dlg'), inp=document.getElementById('dlgInput');
+    document.getElementById('dlgTitle').textContent=title; document.getElementById('dlgMsg').textContent=msg||'';
+    inp.style.display = input===undefined ? 'none' : ''; inp.value = input||'';
+    const done=v=>{ ov.classList.remove('on'); document.getElementById('dlgYes').onclick=document.getElementById('dlgNo').onclick=null; res(v); };
+    document.getElementById('dlgYes').onclick=()=>done(input===undefined ? true : inp.value);
+    document.getElementById('dlgNo').onclick=()=>done(input===undefined ? false : null);
+    ov.classList.add('on'); if(input!==undefined) setTimeout(()=>inp.focus(),50);
+  });
+}
+const uiConfirm = (t,m) => uiDialog(t,m);
+const uiPrompt = (t,m,v) => uiDialog(t,m,v||'');
+function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('on'), 1800); }
+
+/* dates */
+function pd(s){ const [y,m,d] = s.split('-').map(Number); return new Date(y,m-1,d); }
+function todayStr(){ const t = new Date(); return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
+const dayName = s => GU_DAYS[pd(s).getDay()];
+const dateGu = s => { const d = pd(s); return gu(d.getDate())+' '+GU_MON[d.getMonth()]; };
+const dateNum = s => { const d = pd(s); return gu(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()); };
+
+/* ===================== NAV ===================== */
+const TABS = [['home','🏠 હોમ'],['rooms','🛏️ રૂમ'],['sevas','🍽️ સેવા'],['summary','📋 સંતો'],['menu','🍛 મેનૂ']];
+document.getElementById('deskNav').innerHTML = TABS.map(([k,l])=>`<button data-tab="${k}">${l}</button>`).join('');
+function go(tab){
+  document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('on', b.dataset.tab===tab));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='p-'+tab));
+  window.scrollTo({top:0, behavior:'smooth'});
+  try{ history.replaceState(null,'','#'+tab); }catch(e){}
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+document.querySelectorAll('.filter button').forEach(b=>b.onclick=()=>{
+  sumFilter=b.dataset.f; document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',x===b)); renderSummary();
+});
+
+/* ===================== RENDER ===================== */
+function chip(s, onX){
+  const m = MMAP[s.mandal];
+  return `<span class="chip" title="${esc(m.name)}"><i class="dot" style="background:${m.color}"></i>${esc(short(s.name))}${onX?`<button class="x" onclick="${onX}">✕</button>`:''}</span>`;
+}
+function renderStats(){
+  const n = SAINTS.length;
+  const r = SAINTS.filter(s => state.rooms[s.id]).length;
+  const sv = SAINTS.filter(s => sevasOf(s.id).length).length;
+  document.getElementById('stTotal').textContent = n;
+  document.getElementById('stRoom').textContent = r + '/' + n;
+  document.getElementById('stSeva').textContent = sv + '/' + n;
+  document.getElementById('brRoom').style.width = (r/n*100)+'%';
+  document.getElementById('brSeva').style.width = (sv/n*100)+'%';
+  document.getElementById('qSeva').textContent = state.sevaList.length + ' સેવા';
+  const left = n - r;
+  document.getElementById('roomHint').innerHTML = left ? `રૂમ પર “+ સંતો ઉમેરો” દબાવો. <b style="color:#c92a2a">${left} સંતોને રૂમ બાકી</b>` : '<b style="color:#2f9e44">✓ બધા સંતોને રૂમ ફાળવાઈ ગયા</b>';
+}
+function renderHome(){
+  // countdown
+  const t = todayStr(), first = state.menu[0].d, last = state.menu[state.menu.length-1].d;
+  const diff = Math.round((pd(first) - pd(t))/864e5);
+  let cd = '';
+  if(diff > 0) cd = `⏳ શિબિર શરૂ થવામાં ${gu(diff)} દિવસ બાકી`;
+  else if(t <= last) cd = `🌟 આજે શિબિરનો દિવસ ${gu(1-diff)} – ${dayName(t)}`;
+  else cd = '🙏 શિબિર સંપન્ન – જય સ્વામિનારાયણ';
+  document.getElementById('countdown').textContent = cd;
+  // mandals
+  document.getElementById('homeMandals').innerHTML = MANDALS.map(m=>{
+    const l = SAINTS.filter(s=>s.mandal===m.id); const done = l.filter(s=>state.rooms[s.id] && sevasOf(s.id).length).length;
+    return `<div class="mrow"><i class="bul" style="background:${m.color}"></i><span class="t">${esc(m.name)}</span><div class="bar"><i style="width:${done/l.length*100}%;background:${m.color}"></i></div><small>${done}/${l.length}</small></div>`;
+  }).join('') + `<div class="mrow" style="background:#fffaf3"><span class="t" style="font-size:12px;color:var(--muted)">પટ્ટી = રૂમ અને સેવા બંને ફાળવાયેલા સંતો</span></div>`;
+  // today menu
+  const idx = state.menu.findIndex(x=>x.d===t);
+  const day = idx>=0 ? state.menu[idx] : (t < first ? state.menu[0] : state.menu[state.menu.length-1]);
+  document.getElementById('homeMenuTitle').textContent = idx>=0 ? '🍛 આજનું મેનૂ' : '🍛 મેનૂ – '+dateGu(day.d);
+  document.getElementById('homeMenu').innerHTML = `<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">${dayName(day.d)}, ${dateGu(day.d)}</div>` +
+    MEALS.map(ml=>`<div style="display:flex;gap:10px;padding:7px 0;border-top:1px solid #f7ece0"><span style="font-size:20px">${ml.icon}</span><div style="flex:1"><b style="font-size:13.5px;color:var(--maroon)">${ml.name}</b><div style="font-size:13.5px">${day[ml.k]?esc(day[ml.k]):'<span style="color:#b49a88">—</span>'}</div></div></div>`).join('');
+}
+function renderRooms(){
+  let h = '';
+  for(let r=1; r<=ROOMS; r++){
+    const list = inRoom(r);
+    h += `<div class="card"><div class="card-h"><div class="ico room-no">${r}</div><h3>રૂમ નં. ${r}</h3><span class="cnt ${list.length?'':'zero'}">${list.length} સંતો</span></div>
+      <div class="card-b"><div class="chips">${list.length ? list.map(s=>chip(s,`unRoom('${s.id}')`)).join('') : '<div class="empty">હજુ કોઈ સંત નથી</div>'}</div>
+      <button class="add" onclick="openPicker('room',${r})">+ સંતો ઉમેરો / બદલો</button></div></div>`;
+  }
+  document.getElementById('roomGrid').innerHTML = h;
+}
+function renderSevas(){
+  document.getElementById('sevaGrid').innerHTML = state.sevaList.map(sv => {
+    const list = sevaMembers(sv.id);
+    return `<div class="card"><div class="card-h"><div class="ico">${sv.icon||'🙏'}</div><h3>${esc(sv.name)}</h3>
+      <span class="cnt ${list.length?'':'zero'}">${list.length} સંતો</span>
+      <button class="edit" title="નામ બદલો" onclick="renameSeva('${sv.id}')">✏️</button></div>
+      <div class="card-b"><div class="chips">${list.length ? list.map(s=>chip(s,`unSeva('${sv.id}','${s.id}')`)).join('') : '<div class="empty">હજુ કોઈ સંત નથી</div>'}</div>
+      <button class="add" onclick="openPicker('seva','${sv.id}')">+ સંતો ઉમેરો / બદલો</button></div></div>`;
+  }).join('');
+}
+let sumFilter = 'all';
+const openMand = new Set(MANDALS.map(m=>m.id));
+function renderSummary(){
+  let h = '';
+  MANDALS.forEach(m => {
+    let list = SAINTS.filter(s => s.mandal===m.id);
+    if(sumFilter==='noroom') list = list.filter(s=>!state.rooms[s.id]);
+    if(sumFilter==='noseva') list = list.filter(s=>!sevasOf(s.id).length);
+    if(!list.length) return;
+    const open = openMand.has(m.id);
+    h += `<div class="card mand"><div class="card-h" onclick="toggleMand('${m.id}')"><div class="ico" style="background:${m.color};color:#fff;font-size:15px;font-weight:800">${m.saints.length}</div><h3>${esc(m.name)}</h3><span class="cnt">${open?'▲':'▼'}</span></div>`;
+    if(open){
+      h += list.map(s => {
+        const sv = sevasOf(s.id); const r = state.rooms[s.id]||'';
+        let opts = `<option value="">રૂમ —</option>`;
+        for(let i=1;i<=ROOMS;i++) opts += `<option value="${i}" ${r==i?'selected':''}>રૂમ ${i}</option>`;
+        return `<div class="srow"><div class="n">${s.no}</div><div><div class="nm">${esc(s.name)}</div>
+          <div class="sv">${sv.length ? sv.map(x=>`<span class="mini">${x.icon||''} ${esc(x.name)}</span>`).join('') : '<span class="mini none">સેવા બાકી</span>'}</div></div>
+          <div class="ctr"><select class="rsel ${r?'':'unset'}" onchange="setRoom('${s.id}',this.value)">${opts}</select>
+          <button class="btn sm" onclick="openSaintSevas('${s.id}')">🍽️ સેવા</button></div></div>`;
+      }).join('');
+    }
+    h += `</div>`;
+  });
+  document.getElementById('summaryList').innerHTML = h || '<div class="empty" style="text-align:center;padding:30px">🙏 અહીં કોઈ સંત બાકી નથી</div>';
+}
+function toggleMand(id){ openMand.has(id)?openMand.delete(id):openMand.add(id); renderSummary(); }
+
+/* ===================== MENU ===================== */
+const EMO = [['મિષ્ટાન્ન','🍮'],['સુકું ફરસાણ','🥨'],['ફરસાણ','🥟'],['રોટલા','🫓'],['રોટલી','🫓'],['ભાખરી','🫓'],['ખીચડી','🍲'],['કઢી','🥣'],['દાળ','🥣'],['ભાત','🍚'],['ફ્રૂટ','🍎'],['સામો','🌾'],['સાબુદાણા','⚪'],['શાક','🥘'],['છાશ','🥛'],['દૂધ','🥛']];
+const emoOf = t => (EMO.find(([k])=>t.startsWith(k))||[,'🍽️'])[1];
+function splitItems(str){ // split by comma but not inside ()
+  const out=[]; let cur='', depth=0;
+  for(const ch of str||''){ if(ch==='(') depth++; if(ch===')') depth--; if(ch===',' && depth<=0){ if(cur.trim()) out.push(cur.trim()); cur=''; } else cur+=ch; }
+  if(cur.trim()) out.push(cur.trim()); return out;
+}
+function itemHtml(t){
+  const m = t.match(/^શાક\s*\((.+)\)$/);
+  if(m) return `<span class="item sk"><span class="ie">🥘</span>શાક: <small>${esc(m[1])}</small></span>`;
+  return `<span class="item ${t.startsWith('મિષ્ટાન્ન')?'sw':''}"><span class="ie">${emoOf(t)}</span>${esc(t)}</span>`;
+}
+let menuDay = null, menuView = 'day';
+function setMenuView(v){ menuView=v; document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  document.getElementById('menuDay').style.display = v==='day'?'':'none'; document.getElementById('menuTable').style.display = v==='table'?'':'none'; }
+function pickDay(d){ menuDay=d; renderMenu(); }
+function renderMenu(){
+  const t = todayStr();
+  if(!menuDay || !state.menu.find(x=>x.d===menuDay)) menuDay = (state.menu.find(x=>x.d===t)||state.menu.find(x=>x.d>t)||state.menu[0]).d;
+  document.getElementById('days').innerHTML = state.menu.map((x,i)=>{ const dt=pd(x.d);
+    return `<button class="day ${x.d===menuDay?'on':''}" onclick="pickDay('${x.d}')">${x.d===t?'<span class="today">આજે</span>':''}<div class="dn">${GU_DAYS[dt.getDay()].replace('વાર','')}</div><div class="dd">${gu(dt.getDate())}</div><div class="dm">દિવસ ${gu(i+1)}</div></button>`; }).join('');
+  const day = state.menu.find(x=>x.d===menuDay); const di = state.menu.indexOf(day);
+  document.getElementById('dayTitle').textContent = dayName(day.d)+', '+dateGu(day.d);
+  document.getElementById('daySub').textContent = 'શિબિર દિવસ '+gu(di+1)+' / '+gu(state.menu.length);
+  document.getElementById('meals').innerHTML = MEALS.map(ml=>{
+    const items = splitItems(day[ml.k]);
+    const servers = ml.sevas.map(id=>state.sevaList.find(s=>s.id===id)).filter(Boolean).map(sv=>{
+      const l = sevaMembers(sv.id);
+      return `<div class="srv">${sv.icon||''} <b>${esc(sv.name)}:</b> ${l.length?l.map(s=>esc(short(s.name))).join(', '):'<span class="no">હજુ ફાળવી નથી</span>'}</div>`; }).join('');
+    return `<div class="meal"><div class="meal-h ${ml.cls}"><span class="mi">${ml.icon}</span><div><b>${ml.name}</b><small>${ml.sub}</small></div><button class="ed" onclick="editMeal('${day.d}','${ml.k}')">✏️ સુધારો</button></div>
+      <div class="meal-b">${items.length?`<div class="items">${items.map(itemHtml).join('')}</div>`:'<div class="nomeal">🍃 આ સમયે ભોજન નથી</div>'}
+      ${items.length?`<div class="servers"><div class="lb">🙏 સેવામાં સંતો</div>${servers}</div>`:''}</div></div>`;
+  }).join('');
+  // full table
+  document.getElementById('menuTable').innerHTML = `<div class="tbl-wrap"><table class="mt"><thead><tr><th>તારીખ</th>${MEALS.map(m=>`<th>${m.icon} ${m.name}</th>`).join('')}</tr></thead><tbody>`+
+    state.menu.map(x=>`<tr class="${x.d===t?'today':''}"><td class="dt">${dateNum(x.d)}<small>${dayName(x.d)}</small></td>${MEALS.map(m=>`<td>${splitItems(x[m.k]).map(it=>it.startsWith('શાક')?`<span class="sk">${esc(it)}</span>`:esc(it)).join(', ')||'<span style="color:#ccc">—</span>'}</td>`).join('')}</tr>`).join('')+
+    `</tbody></table></div>`;
+}
+let mealEdit = null;
+function editMeal(d,k){
+  const day = state.menu.find(x=>x.d===d); const ml = MEALS.find(m=>m.k===k);
+  pk = {type:'meal', key:d, k};
+  document.getElementById('pkTitle').textContent = ml.icon+' '+ml.name+' – '+dateGu(d);
+  document.getElementById('pkSub').textContent = 'વાનગીઓ અલ્પવિરામ (,) થી અલગ લખો. શાક માટે: શાક (ભીંડા)';
+  document.getElementById('pkSearch').style.display='none';
+  document.getElementById('pkBody').innerHTML = `<textarea class="search" id="mealTxt">${esc(day[k])}</textarea>`;
+  document.getElementById('pkSave').textContent = 'સાચવો';
+  document.getElementById('ov').classList.add('on');
+}
+
+function renderAll(){ renderStats(); renderHome(); renderRooms(); renderSevas(); renderSummary(); renderMenu(); save(); }
+
+/* ===================== ACTIONS ===================== */
+function unRoom(id){ delete state.rooms[id]; renderAll(); }
+function setRoom(id,v){ if(v) state.rooms[id]=+v; else delete state.rooms[id]; renderAll(); }
+function unSeva(sv,id){ state.sevas[sv]=(state.sevas[sv]||[]).filter(x=>x!==id); renderAll(); }
+async function renameSeva(id){
+  const sv = state.sevaList.find(x=>x.id===id);
+  const n = await uiPrompt('✏️ સેવાનું નામ','નવું નામ લખો. ખાલી રાખશો તો સેવા કાઢી નાખવાનું પૂછશે.', sv.name);
+  if(n===null) return;
+  if(!n.trim()){ if(await uiConfirm('સેવા કાઢી નાખવી છે?','“'+sv.name+'”')){ state.sevaList = state.sevaList.filter(x=>x.id!==id); delete state.sevas[id]; } }
+  else sv.name = n.trim();
+  renderAll();
+}
+async function addSeva(){
+  const n = await uiPrompt('➕ નવી સેવા','નવી સેવાનું નામ લખો'); if(!n||!n.trim()) return;
+  state.sevaList.push({id:'s'+Date.now(), name:n.trim(), icon:'🙏'}); renderAll(); toast('નવી સેવા ઉમેરાઈ');
+}
+async function autoRooms(){
+  const left = SAINTS.filter(s=>!state.rooms[s.id]);
+  if(!left.length){ toast('બધા સંતોને રૂમ મળી ગયા છે'); return; }
+  if(!await uiConfirm('✨ ઓટો ફાળવણી', left.length+' બાકી સંતોને મંડળ પ્રમાણે સાથે રાખીને રૂમ ફાળવવા છે?')) return;
+  const cap = Math.ceil(SAINTS.length/ROOMS);
+  const count = r => SAINTS.filter(s=>state.rooms[s.id]==r).length;
+  let r = 1;
+  left.forEach(s => { let tries=0; while(count(r)>=cap && tries<ROOMS){ r = r%ROOMS+1; tries++; } state.rooms[s.id]=r; });
+  renderAll(); toast('✓ ઓટો ફાળવણી થઈ ગઈ');
+}
+async function resetAll(){
+  if(!await uiConfirm('↺ રીસેટ','રૂમ અને સેવાની બધી ફાળવણી ભૂંસી નાખવી છે? (સંતોની યાદી અને મેનૂ રહેશે)')) return;
+  const menu = state.menu; state = fresh(); state.menu = menu; renderAll(); toast('રીસેટ થઈ ગયું');
+}
+
+/* ===================== PICKER ===================== */
+let pk = null;
+function openPicker(type,key){
+  const cur = type==='room' ? SAINTS.filter(s=>state.rooms[s.id]==key).map(s=>s.id) : (state.sevas[key]||[]);
+  pk = {type,key,sel:new Set(cur),open:new Set()};
+  if(type==='room'){ document.getElementById('pkTitle').textContent = '🛏️ રૂમ નં. '+key+' માટે સંતો'; document.getElementById('pkSub').textContent = 'મંડળ દબાવો → સંતો પસંદ કરો. બીજા રૂમના સંતને પસંદ કરશો તો અહીં ખસેડાશે.'; }
+  else { const sv = state.sevaList.find(x=>x.id===key); document.getElementById('pkTitle').textContent = (sv.icon||'')+' '+sv.name; document.getElementById('pkSub').textContent = 'મંડળ દબાવો → સંતો પસંદ કરો. ટૅગ બતાવે છે કે સંત પાસે બીજી કેટલી સેવા છે.'; }
+  document.getElementById('pkSearch').value='';
+  MANDALS.forEach(m=>{ if(SAINTS.some(s=>s.mandal===m.id && pk.sel.has(s.id))) pk.open.add(m.id); });
+  renderPicker();
+  document.getElementById('ov').classList.add('on');
+}
+function closePicker(){ document.getElementById('ov').classList.remove('on'); document.getElementById('pkSearch').style.display=''; pk=null; }
+function renderPicker(){
+  if(!pk || (pk.type!=='room' && pk.type!=='seva')) return;
+  const q = document.getElementById('pkSearch').value.trim();
+  let h = '';
+  MANDALS.forEach(m => {
+    let list = SAINTS.filter(s=>s.mandal===m.id);
+    if(q) list = list.filter(s=>s.name.includes(q));
+    if(!list.length) return;
+    const selN = list.filter(s=>pk.sel.has(s.id)).length;
+    const open = q || pk.open.has(m.id);
+    const allOn = selN===list.length;
+    h += `<div class="acc ${open?'open':''}"><div class="acc-h" onclick="pkToggle('${m.id}')"><i class="bul" style="background:${m.color}"></i><span class="t">${esc(m.name)}</span><span class="s">${selN}/${list.length} પસંદ</span><span class="arr">▶</span></div>
+      <div class="acc-b"><div class="all"><span>આખું મંડળ</span><button class="btn sm" onclick="pkAll(event,'${m.id}',${!allOn})">${allOn?'બધા હટાવો':'✓ બધા પસંદ કરો'}</button></div>`;
+    list.forEach(s => {
+      const on = pk.sel.has(s.id);
+      let tag = '';
+      if(pk.type==='room'){ const r = state.rooms[s.id]; if(r && r!=pk.key) tag = `<span class="tag busy">રૂમ ${r} માં</span>`; }
+      else { const n = sevasOf(s.id).filter(x=>x.id!==pk.key).length; if(n) tag = `<span class="tag">${n} બીજી સેવા</span>`; }
+      h += `<div class="opt ${on?'sel':''}" onclick="pkPick('${s.id}')"><span class="box">${on?'✓':''}</span><span class="on">${esc(s.name)}</span>${tag}</div>`;
+    });
+    h += `</div></div>`;
+  });
+  document.getElementById('pkBody').innerHTML = h || '<div class="empty" style="text-align:center;padding:20px">કોઈ સંત મળ્યા નહીં</div>';
+  document.getElementById('pkSave').textContent = 'સાચવો ('+pk.sel.size+')';
+}
+function pkToggle(id){ pk.open.has(id)?pk.open.delete(id):pk.open.add(id); renderPicker(); }
+function pkPick(id){ pk.sel.has(id)?pk.sel.delete(id):pk.sel.add(id); renderPicker(); }
+function pkAll(ev,mid,on){ ev.stopPropagation(); SAINTS.filter(s=>s.mandal===mid).forEach(s=>on?pk.sel.add(s.id):pk.sel.delete(s.id)); pk.open.add(mid); renderPicker(); }
+function savePicker(){
+  if(pk.type==='room'){
+    SAINTS.forEach(s=>{ if(state.rooms[s.id]==pk.key && !pk.sel.has(s.id)) delete state.rooms[s.id]; });
+    pk.sel.forEach(id=>state.rooms[id]=pk.key);
+  } else if(pk.type==='seva'){
+    state.sevas[pk.key] = SAINTS.filter(s=>pk.sel.has(s.id)).map(s=>s.id);
+  } else if(pk.type==='saint'){
+    state.sevaList.forEach(sv=>{ const arr = (state.sevas[sv.id]||[]).filter(x=>x!==pk.key); if(pk.sel.has(sv.id)) arr.push(pk.key); state.sevas[sv.id]=arr; });
+  } else if(pk.type==='meal'){
+    const day = state.menu.find(x=>x.d===pk.key); day[pk.k] = document.getElementById('mealTxt').value.replace(/\n+/g,', ').trim();
+  }
+  closePicker(); renderAll(); toast('✓ સાચવાઈ ગયું');
+}
+function openSaintSevas(sid){
+  const s = SMAP[sid];
+  pk = {type:'saint', key:sid, sel:new Set(sevasOf(sid).map(x=>x.id)), open:new Set()};
+  document.getElementById('pkTitle').textContent = '🍽️ '+s.name;
+  document.getElementById('pkSub').textContent = MMAP[s.mandal].name+' • આ સંતની સેવાઓ પસંદ કરો';
+  document.getElementById('pkSearch').style.display='none';
+  renderSaintPicker();
+  document.getElementById('ov').classList.add('on');
+}
+function renderSaintPicker(){
+  document.getElementById('pkBody').innerHTML = '<div class="acc open"><div class="acc-b">'+state.sevaList.map(sv=>{
+    const on = pk.sel.has(sv.id); const n = sevaMembers(sv.id).length;
+    return `<div class="opt ${on?'sel':''}" onclick="spPick('${sv.id}')"><span class="box">${on?'✓':''}</span><span class="on">${sv.icon||''} ${esc(sv.name)}</span><span class="tag">${n} સંતો</span></div>`;
+  }).join('')+'</div></div>';
+  document.getElementById('pkSave').textContent = 'સાચવો ('+pk.sel.size+')';
+}
+function spPick(id){ pk.sel.has(id)?pk.sel.delete(id):pk.sel.add(id); renderSaintPicker(); }
+document.getElementById('ov').addEventListener('click', e => { if(e.target.id==='ov') closePicker(); });
+
+/*XLSX_START*/
+/* ===================== XLSX WRITER (no library needed) ===================== */
+const CRC_T = (()=>{ const t=new Uint32Array(256); for(let n=0;n<256;n++){ let c=n; for(let k=0;k<8;k++) c = c&1 ? 0xEDB88320^(c>>>1) : c>>>1; t[n]=c>>>0; } return t; })();
+function crc32(u8){ let c=0xFFFFFFFF; for(let i=0;i<u8.length;i++) c = CRC_T[(c^u8[i])&0xFF]^(c>>>8); return (c^0xFFFFFFFF)>>>0; }
+function zipStore(files){ // files: [{name, data:string}]
+  const enc = new TextEncoder(); const parts=[]; const central=[]; let offset=0;
+  const d = new Date(); const dt = ((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate(); const tm = (d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1);
+  files.forEach(f=>{
+    const name = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data);
+    const lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true); lh.setUint16(4,20,true); lh.setUint16(6,0x0800,true); lh.setUint16(8,0,true);
+    lh.setUint16(10,tm,true); lh.setUint16(12,dt,true); lh.setUint32(14,crc,true); lh.setUint32(18,data.length,true); lh.setUint32(22,data.length,true);
+    lh.setUint16(26,name.length,true); lh.setUint16(28,0,true);
+    parts.push(new Uint8Array(lh.buffer), name, data);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true); ch.setUint16(4,20,true); ch.setUint16(6,20,true); ch.setUint16(8,0x0800,true); ch.setUint16(10,0,true);
+    ch.setUint16(12,tm,true); ch.setUint16(14,dt,true); ch.setUint32(16,crc,true); ch.setUint32(20,data.length,true); ch.setUint32(24,data.length,true);
+    ch.setUint16(28,name.length,true); ch.setUint32(42,offset,true);
+    central.push(new Uint8Array(ch.buffer), name);
+    offset += 30 + name.length + data.length;
+  });
+  const cdSize = central.reduce((a,b)=>a+b.length,0);
+  const end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0,0x06054b50,true); end.setUint16(8,files.length,true); end.setUint16(10,files.length,true); end.setUint32(12,cdSize,true); end.setUint32(16,offset,true);
+  return new Blob([...parts,...central,new Uint8Array(end.buffer)],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+const xesc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const colL = i => { let s=''; i++; while(i){ const m=(i-1)%26; s=String.fromCharCode(65+m)+s; i=Math.floor((i-1)/26);} return s; };
+/* styles: 0 default, 1 header, 2 body, 3 title, 4 group row, 5 body center */
+function sheetXml(sheet){
+  const ncol = sheet.widths.length; const merges=[]; let rows='';
+  sheet.rows.forEach((row,ri)=>{
+    const r = ri+1; let cells='';
+    if(row.merge) merges.push(`A${r}:${colL(ncol-1)}${r}`);
+    row.cells.forEach((v,ci)=>{
+      if(v===null||v===undefined) { cells += `<c r="${colL(ci)}${r}" s="${row.s}"/>`; return; }
+      const st = (row.s===2 && typeof v==='number') ? 5 : row.s;
+      cells += typeof v==='number' ? `<c r="${colL(ci)}${r}" s="${st}"><v>${v}</v></c>` : `<c r="${colL(ci)}${r}" s="${st}" t="inlineStr"><is><t xml:space="preserve">${xesc(v)}</t></is></c>`;
+    });
+    if(row.merge) for(let ci=row.cells.length; ci<ncol; ci++) cells += `<c r="${colL(ci)}${r}" s="${row.s}"/>`;
+    rows += `<row r="${r}"${row.h?` ht="${row.h}" customHeight="1"`:''}>${cells}</row>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetViews><sheetView workbookViewId="0"><pane ySplit="2" topLeftCell="A3" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${sheet.widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>${rows}</sheetData>${merges.length?`<mergeCells count="${merges.length}">${merges.map(m=>`<mergeCell ref="${m}"/>`).join('')}</mergeCells>`:''}<pageSetup orientation="portrait" fitToWidth="1" fitToHeight="0"/></worksheet>`;
+}
+function buildXlsx(sheets){
+  const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+<fonts count="4"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="12"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><b/><sz val="15"/><color rgb="FF7C1D1D"/><name val="Calibri"/></font><font><b/><sz val="12"/><color rgb="FF7C1D1D"/><name val="Calibri"/></font></fonts>
+<fills count="5"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFC2410C"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFFFE8CC"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFFFF8EF"/><bgColor indexed="64"/></patternFill></fill></fills>
+<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FFD9C2AD"/></left><right style="thin"><color rgb="FFD9C2AD"/></right><top style="thin"><color rgb="FFD9C2AD"/></top><bottom style="thin"><color rgb="FFD9C2AD"/></bottom><diagonal/></border></borders>
+<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
+<cellXfs count="6"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+<xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="2" fillId="4" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
+<xf numFmtId="0" fontId="3" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment vertical="center"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf></cellXfs>
+<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+  const files = [
+    {name:'[Content_Types].xml', data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((s,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}</Types>`},
+    {name:'_rels/.rels', data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+    {name:'xl/workbook.xml', data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((s,i)=>`<sheet name="${xesc(s.name)}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join('')}</sheets></workbook>`},
+    {name:'xl/_rels/workbook.xml.rels', data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((s,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join('')}<Relationship Id="rId${sheets.length+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+    {name:'xl/styles.xml', data:styles},
+    ...sheets.map((s,i)=>({name:`xl/worksheets/sheet${i+1}.xml`, data:sheetXml(s)}))
+  ];
+  return zipStore(files);
+}
+/*XLSX_END*/
+
+/* ===================== EXPORT ===================== */
+function buildSheets(){
+  const T = 'સ્વામિનારાયણ મહામંત્ર શિબિર';
+  const r1 = [{s:3,merge:1,h:28,cells:[T+' – રૂમ ફાળવણી']},{s:1,h:22,cells:['ક્રમ','સંતનું નામ','મંડળ']}];
+  for(let r=1;r<=ROOMS;r++){ const l=inRoom(r); r1.push({s:4,merge:1,h:20,cells:[`રૂમ નં. ${r}  (${l.length} સંતો)`]}); l.forEach((s,i)=>r1.push({s:2,cells:[i+1,s.name,MMAP[s.mandal].name]})); if(!l.length) r1.push({s:2,cells:['','—','']}); }
+  const nr = SAINTS.filter(s=>!state.rooms[s.id]);
+  if(nr.length){ r1.push({s:4,merge:1,cells:[`રૂમ બાકી  (${nr.length} સંતો)`]}); nr.forEach((s,i)=>r1.push({s:2,cells:[i+1,s.name,MMAP[s.mandal].name]})); }
+  const r2 = [{s:3,merge:1,h:28,cells:[T+' – રસોડું / સેવા ફાળવણી']},{s:1,h:22,cells:['ક્રમ','સંતનું નામ','મંડળ']}];
+  state.sevaList.forEach(sv=>{ const l=sevaMembers(sv.id); r2.push({s:4,merge:1,h:20,cells:[`${sv.name}  (${l.length} સંતો)`]}); l.forEach((s,i)=>r2.push({s:2,cells:[i+1,s.name,MMAP[s.mandal].name]})); if(!l.length) r2.push({s:2,cells:['','—','']}); });
+  const r3 = [{s:3,merge:1,h:28,cells:[T+' – સંત પ્રમાણે યાદી']},{s:1,h:22,cells:['ક્રમ','મંડળ','સંતનું નામ','રૂમ નં.','સેવા']}];
+  SAINTS.forEach(s=>r3.push({s:2,cells:[s.sr,MMAP[s.mandal].name,s.name,state.rooms[s.id]||'—',sevasOf(s.id).map(x=>x.name).join(', ')||'—']}));
+  const hdr = ['ક્રમ','સંતનું નામ','રૂમ',...state.sevaList.map(x=>x.name)];
+  const r4 = [{s:3,merge:1,h:28,cells:[T+' – સેવા ચાર્ટ']},{s:1,h:40,cells:hdr}];
+  MANDALS.forEach(m=>{ r4.push({s:4,merge:1,cells:[m.name]}); SAINTS.filter(s=>s.mandal===m.id).forEach(s=>{ const my=sevasOf(s.id).map(x=>x.id); r4.push({s:2,cells:[s.sr,s.name,state.rooms[s.id]||'—',...state.sevaList.map(x=>my.includes(x.id)?'✓':'')]}); }); });
+  const r5 = [{s:3,merge:1,h:28,cells:[T+' – ભોજન મેનૂ']},{s:1,h:22,cells:['તારીખ','વાર','સવાર','બપોર','સાંજ']}];
+  state.menu.forEach(x=>{ const d=pd(x.d); r5.push({s:2,h:48,cells:[`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`,dayName(x.d),x.m||'—',x.n||'—',x.e||'—']}); });
+  return [
+    {name:'રૂમ ફાળવણી', widths:[8,38,34], rows:r1},
+    {name:'સેવા ફાળવણી', widths:[8,38,34], rows:r2},
+    {name:'સંત પ્રમાણે', widths:[7,32,36,9,50], rows:r3},
+    {name:'ભોજન મેનૂ', widths:[13,11,30,44,30], rows:r5},
+    {name:'સેવા ચાર્ટ', widths:[7,36,7,...state.sevaList.map(()=>13)], rows:r4},
+  ];
+}
+let DL = null; const IN_CLAUDE = !!window.claude;
+if(IN_CLAUDE){ document.querySelectorAll('.prt').forEach(b=>b.style.display='none'); try{ window.claude.use('downloads').then(d=>{ DL=d; }).catch(()=>{}); }catch(e){} }
+async function exportXlsx(){
+  const blob = buildXlsx(buildSheets());
+  const d = new Date(); const fn = `Mahamantra_Shibir_${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}.xlsx`;
+  if(IN_CLAUDE){
+    if(!DL){ try{ DL = await window.claude.use('downloads'); }catch(e){} }
+    if(!DL){ toast('અહીં ડાઉનલોડ શક્ય નથી'); return; }
+    try{ const r = await DL.save({filename:fn, data:blob}); if(r.status==='saved') toast('📊 Excel ફાઇલ સેવ થઈ'); }
+    catch(e){ if(e && e.code!=='declined') toast('ડાઉનલોડ ન થયું: '+(e.code||'')); }
+    return;
+  }
+  try{
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fn;
+    document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+    toast('📊 Excel ફાઇલ ડાઉનલોડ થઈ');
+  }catch(e){ alert('Excel બનાવવામાં ભૂલ: '+e.message); }
+}
+function doPrint(){
+  const sh = buildSheets().slice(0,4);
+  document.getElementById('printArea').innerHTML = sh.map(s=>{
+    let h = `<h2>${esc(s.rows[0].cells[0])}</h2><table>`;
+    s.rows.slice(1).forEach(r=>{ const tag = r.s===1?'th':'td'; h += r.merge ? `<tr><th colspan="${s.widths.length}" style="background:#ffe8cc">${esc(r.cells[0])}</th></tr>` : `<tr>${r.cells.map(c=>`<${tag}>${esc(c)}</${tag}>`).join('')}</tr>`; });
+    return h+'</table>';
+  }).join('<div style="page-break-after:always"></div>');
+  window.print();
+}
+
+document.querySelectorAll('.lg').forEach(el=>el.innerHTML = MANDALS.map(m=>`<span><i style="background:${m.color}"></i>${esc(m.name)}</span>`).join(''));
+renderAll();
+const startTab = (location.hash||'').slice(1);
+go(TABS.some(t=>t[0]===startTab) ? startTab : 'home');
+window.addEventListener('hashchange',()=>{ const h=location.hash.slice(1); if(TABS.some(t=>t[0]===h) && !document.getElementById('p-'+h).classList.contains('on')) go(h); });
+</script>
+</body>
+</html>
