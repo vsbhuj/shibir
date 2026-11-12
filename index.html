@@ -449,10 +449,12 @@ MANDALS.forEach(m => { MMAP[m.id] = m; m.saints.forEach((n,i) => {
   SAINTS.push(s); SMAP[s.id] = s; }); });
 
 /* ===================== STATE ===================== */
+/* તમારા સ્ક્રીનશૉટમાંથી લીધેલી ફાળવણી */
+const PRESET_SEVAS = {s1:['m3_11','m6_8','m6_9','m8_1'], s2:['m1_5','m1_6','m5_1','m6_5','m6_6'], s3:['m3_8','m5_6'], s6:['m3_9','m3_11','m3_13','m5_1'], s7:['m5_7','m7_1','m8_1']};
 const KEY = 'mahamantraShibir_v1';
 let state = load();
-function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:{}, menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
-function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return fresh(); }
+function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:JSON.parse(JSON.stringify(PRESET_SEVAS)), menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
+function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!Object.keys(d.rooms).length && !Object.values(d.sevas||{}).some(x=>x.length)) d.sevas = JSON.parse(JSON.stringify(PRESET_SEVAS)); if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return fresh(); }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
