@@ -268,6 +268,13 @@ textarea.search{min-height:110px;resize:vertical;line-height:1.6}
       <div class="stat"><b id="stSeva">0</b><span>સેવા ફાળવાઈ</span><div class="bar"><i id="brSeva"></i></div></div>
     </div>
 
+    <div class="card" style="margin-top:16px;border:2px solid var(--saffron)"><div class="card-b">
+      <b style="color:var(--maroon);font-size:16px">📤 મારી ફાળવણી Claude ને મોકલો</b>
+      <p style="font-size:13px;color:var(--muted);margin:4px 0 8px">નીચેનું લખાણ કોપી કરીને Claude ની ચેટમાં પેસ્ટ કરો.</p>
+      <textarea class="search" id="shareTxt" readonly style="min-height:120px;font-size:12.5px;line-height:1.5"></textarea>
+      <button class="btn pri" style="margin-top:8px;width:100%" onclick="copyShare()">📋 બધું કોપી કરો</button>
+    </div></div>
+
     <div class="sec-h"><h3>ઝડપી વિભાગો</h3></div>
     <div class="quick">
       <button class="qt q1" onclick="go('rooms')"><span class="e">🛏️</span><div><b>રૂમ ફાળવણી</b><small>૧૦ રૂમ</small></div></button>
@@ -627,7 +634,19 @@ function editMeal(d,k){
   document.getElementById('ov').classList.add('on');
 }
 
-function renderAll(){ renderStats(); renderHome(); renderRooms(); renderSevas(); renderSummary(); renderMenu(); save(); }
+function shareText(){
+  let o = 'મહામંત્ર શિબિર ફાળવણી\n\n';
+  for(let r=1;r<=ROOMS;r++){ const l=inRoom(r); o += 'રૂમ '+r+': '+(l.length?l.map(s=>short(s.name)).join(', '):'-')+'\n'; }
+  o += '\n';
+  state.sevaList.forEach(sv=>{ const l=sevaMembers(sv.id); o += sv.name+': '+(l.length?l.map(s=>short(s.name)).join(', '):'-')+'\n'; });
+  return o;
+}
+async function copyShare(){
+  const ta = document.getElementById('shareTxt');
+  try{ await navigator.clipboard.writeText(ta.value); toast('✓ કોપી થઈ ગયું, હવે ચેટમાં પેસ્ટ કરો'); }
+  catch(e){ ta.focus(); ta.select(); try{ document.execCommand('copy'); toast('✓ કોપી થઈ ગયું'); }catch(_){ toast('લખાણ પર લાંબું દબાવી Select all → Copy કરો'); } }
+}
+function renderAll(){ const st=document.getElementById('shareTxt'); if(st) st.value = shareText(); renderStats(); renderHome(); renderRooms(); renderSevas(); renderSummary(); renderMenu(); save(); }
 
 /* ===================== ACTIONS ===================== */
 function unRoom(id){ delete state.rooms[id]; renderAll(); }
