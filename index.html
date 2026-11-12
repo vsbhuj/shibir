@@ -288,6 +288,11 @@ textarea.search{min-height:110px;resize:vertical;line-height:1.6}
       <button class="btn prt" onclick="doPrint()" data-p="1">🖨️ પ્રિન્ટ</button>
       <button class="btn" onclick="resetAll()">↺ ફાળવણી રીસેટ</button>
     </div>
+    <div class="card" style="margin-top:6px"><div class="card-b">
+      <b style="color:var(--maroon)">📥 જૂની ફાળવણી પાછી લાવો</b>
+      <p style="font-size:13px;color:var(--muted);margin:4px 0 10px">પહેલાંની HTML ફાઇલમાંથી (કે બીજા ફોનમાંથી) ડાઉનલોડ કરેલી Excel ફાઇલ અહીં પસંદ કરો. તેમાંના રૂમ અને સેવા આ વેબસાઇટમાં આવી જશે.</p>
+      <label class="btn pri" style="display:inline-block">📂 Excel ફાઇલ પસંદ કરો<input type="file" accept=".xlsx" style="display:none" onchange="importXlsx(this)"></label>
+    </div></div>
     <footer><b>|| જય સ્વામિનારાયણ ||</b>સ્વામિનારાયણ મહામંત્ર શિબિર – વ્યવસ્થા</footer>
   </section>
 
@@ -796,6 +801,69 @@ function buildXlsx(sheets){
   return zipStore(files);
 }
 /*XLSX_END*/
+
+/* ===================== IMPORT ===================== */
+async function unzip(buf){
+  const u8 = new Uint8Array(buf), dv = new DataView(buf); let eocd = -1;
+  for(let i=u8.length-22;i>=Math.max(0,u8.length-66000);i--){ if(dv.getUint32(i,true)===0x06054b50){ eocd=i; break; } }
+  if(eocd<0) throw new Error('zip');
+  const n = dv.getUint16(eocd+10,true); let p = dv.getUint32(eocd+16,true); const out = {}; const dec = new TextDecoder();
+  for(let k=0;k<n;k++){
+    const method = dv.getUint16(p+10,true), csize = dv.getUint32(p+20,true), nl = dv.getUint16(p+28,true), el = dv.getUint16(p+30,true), cl = dv.getUint16(p+32,true), off = dv.getUint32(p+42,true);
+    const name = dec.decode(u8.subarray(p+46,p+46+nl)); p += 46+nl+el+cl;
+    if(!/\.xml$/.test(name)) continue;
+    const ds = off+30+dv.getUint16(off+26,true)+dv.getUint16(off+28,true); const raw = u8.slice(ds, ds+csize);
+    let data = raw;
+    if(method===8){ const s = new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw')); data = new Uint8Array(await new Response(s).arrayBuffer()); }
+    out[name] = dec.decode(data);
+  }
+  return out;
+}
+function colIdx(ref){ const m = ref.match(/^[A-Z]+/)[0]; let n=0; for(const c of m) n = n*26 + c.charCodeAt(0)-64; return n-1; }
+function sheetRows(xml, shared){
+  const doc = new DOMParser().parseFromString(xml,'application/xml'); const rows = [];
+  for(const r of doc.getElementsByTagName('row')){
+    const row = [];
+    for(const c of r.getElementsByTagName('c')){
+      const t = c.getAttribute('t'); let v = '';
+      if(t==='inlineStr'){ v = [...c.getElementsByTagName('t')].map(x=>x.textContent).join(''); }
+      else { const ve = c.getElementsByTagName('v')[0]; v = ve ? ve.textContent : ''; if(t==='s') v = shared[+v]||''; }
+      row[colIdx(c.getAttribute('r'))] = v.trim();
+    }
+    rows.push(row);
+  }
+  return rows;
+}
+async function importXlsx(inp){
+  const f = inp.files[0]; inp.value=''; if(!f) return;
+  try{
+    const files = await unzip(await f.arrayBuffer());
+    let shared = [];
+    if(files['xl/sharedStrings.xml']){ const d = new DOMParser().parseFromString(files['xl/sharedStrings.xml'],'application/xml'); shared = [...d.getElementsByTagName('si')].map(si=>[...si.getElementsByTagName('t')].map(x=>x.textContent).join('')); }
+    let rows = null;
+    for(const name of Object.keys(files).filter(n=>/^xl\/worksheets\/sheet\d+\.xml$/.test(n))){
+      const rr = sheetRows(files[name], shared); const h = rr.find(r=>r && r.includes('રૂમ નં.') && r.includes('સેવા'));
+      if(h){ rows = rr; break; }
+    }
+    if(!rows) throw new Error('sheet');
+    const h = rows.find(r=>r && r.includes('રૂમ નં.')); const ci = {n:h.indexOf('સંતનું નામ'), r:h.indexOf('રૂમ નં.'), s:h.indexOf('સેવા')};
+    const byName = {}; SAINTS.forEach(s=>byName[s.name]=s);
+    const rooms = {}, sevas = {}, list = state.sevaList.map(x=>({...x}));
+    let found = 0;
+    rows.forEach(r=>{
+      if(!r || r===h) return; const s = byName[r[ci.n]]; if(!s) return; found++;
+      const rn = parseInt(r[ci.r]); if(rn>=1 && rn<=ROOMS) rooms[s.id] = rn;
+      (r[ci.s]||'').split(',').map(x=>x.trim()).filter(x=>x && x!=='—').forEach(nm=>{
+        let sv = list.find(x=>x.name===nm); if(!sv){ sv = {id:'s'+Date.now()+list.length, name:nm, icon:'🙏'}; list.push(sv); }
+        (sevas[sv.id] = sevas[sv.id]||[]).push(s.id);
+      });
+    });
+    if(!found) throw new Error('none');
+    const nr = Object.keys(rooms).length, ns = new Set(Object.values(sevas).flat()).size;
+    if(!await uiConfirm('📥 ફાળવણી પાછી લાવવી છે?', `${found} સંતો મળ્યા: ${nr} ને રૂમ, ${ns} ને સેવા. હાલની ફાળવણીની જગ્યાએ આ આવી જશે.`)) return;
+    state.rooms = rooms; state.sevas = sevas; state.sevaList = list; renderAll(); toast('✓ જૂની ફાળવણી આવી ગઈ');
+  }catch(e){ console.error(e); uiConfirm('ફાઇલ વાંચી ન શકાઈ','આ વેબસાઇટમાંથી ડાઉનલોડ કરેલી Excel ફાઇલ (જેમાં “સંત પ્રમાણે” શીટ હોય) પસંદ કરો.'); }
+}
 
 /* ===================== EXPORT ===================== */
 function buildSheets(){
