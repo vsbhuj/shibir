@@ -268,13 +268,6 @@ textarea.search{min-height:110px;resize:vertical;line-height:1.6}
       <div class="stat"><b id="stSeva">0</b><span>સેવા ફાળવાઈ</span><div class="bar"><i id="brSeva"></i></div></div>
     </div>
 
-    <div class="card" style="margin-top:16px;border:2px solid var(--saffron)"><div class="card-b">
-      <b style="color:var(--maroon);font-size:16px">📤 મારી ફાળવણી Claude ને મોકલો</b>
-      <p style="font-size:13px;color:var(--muted);margin:4px 0 8px">નીચેનું લખાણ કોપી કરીને Claude ની ચેટમાં પેસ્ટ કરો.</p>
-      <textarea class="search" id="shareTxt" readonly style="min-height:120px;font-size:12.5px;line-height:1.5"></textarea>
-      <button class="btn pri" style="margin-top:8px;width:100%" onclick="copyShare()">📋 બધું કોપી કરો</button>
-    </div></div>
-
     <div class="sec-h"><h3>ઝડપી વિભાગો</h3></div>
     <div class="quick">
       <button class="qt q1" onclick="go('rooms')"><span class="e">🛏️</span><div><b>રૂમ ફાળવણી</b><small>૧૦ રૂમ</small></div></button>
@@ -449,12 +442,14 @@ MANDALS.forEach(m => { MMAP[m.id] = m; m.saints.forEach((n,i) => {
   SAINTS.push(s); SMAP[s.id] = s; }); });
 
 /* ===================== STATE ===================== */
-/* તમારા સ્ક્રીનશૉટમાંથી લીધેલી ફાળવણી */
-const PRESET_SEVAS = {s1:['m3_11','m6_8','m6_9','m8_1'], s2:['m1_5','m1_6','m5_1','m6_5','m6_6'], s3:['m3_8','m5_6'], s6:['m3_9','m3_11','m3_13','m5_1'], s7:['m5_7','m7_1','m8_1']};
-const KEY = 'mahamantraShibir_v1';
+/* તમારા વીડિયોમાંથી લીધેલી ફાળવણી (૧૨/૧૧/૨૦૨૬) */
+const PRESET_ROOMS = {1:['m3_1','m3_3','m4_2','m5_2','m5_4'], 2:['m4_1','m5_1','m6_8','m6_9','m8_1'], 3:['m1_2','m2_1','m3_5','m4_3','m6_1','m6_3'], 4:['m1_1','m3_2','m6_4','m7_2','m8_2'], 5:['m1_3','m1_4','m1_5','m1_6','m6_5'], 6:['m2_2','m2_3','m2_4','m2_5','m7_1','m7_3'], 7:['m3_7','m3_8','m3_9','m3_10'], 8:['m2_6','m3_11','m3_12','m3_13','m5_6','m5_8'], 9:['m4_4','m4_5','m5_3','m5_5','m5_7'], 10:['m6_2','m6_6','m6_7']};
+const PRESET_SEVAS = {s1:['m3_11','m6_8','m6_9','m8_1'], s2:['m1_5','m1_6','m5_1','m6_5','m6_6'], s3:['m3_8','m5_6'], s4:['m3_12','m5_5'], s6:['m3_9','m3_11','m3_13','m5_1'], s7:['m5_7','m7_1','m8_1'], s8:['m2_5','m4_5'], s9:['m8_1'], s10:['m3_11','m6_8']};
+function presetState(){ const s = fresh(); Object.entries(PRESET_ROOMS).forEach(([r,ids])=>ids.forEach(id=>s.rooms[id]=+r)); s.sevas = JSON.parse(JSON.stringify(PRESET_SEVAS)); return s; }
+const KEY = 'mahamantraShibir_v2';
 let state = load();
-function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:JSON.parse(JSON.stringify(PRESET_SEVAS)), menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
-function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!Object.keys(d.rooms).length && !Object.values(d.sevas||{}).some(x=>x.length)) d.sevas = JSON.parse(JSON.stringify(PRESET_SEVAS)); if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return fresh(); }
+function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:{}, menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
+function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return presetState(); }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
