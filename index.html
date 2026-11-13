@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#7c1d1d">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="મહામંત્ર શિબિર">
 <title>સ્વામિનારાયણ મહામંત્ર શિબિર ૨૦૨૬</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700;800&family=Hind+Vadodara:wght@500;700&display=swap" rel="stylesheet">
@@ -1119,6 +1124,7 @@ async function runPrint(how){
 
 document.querySelectorAll('.lg').forEach(el=>el.innerHTML = MANDALS.map(m=>`<span><i style="background:${m.color}"></i>${esc(m.name)}</span>`).join(''));
 renderAll();
+try{ if('serviceWorker' in navigator && location.hostname.endsWith('github.io')) navigator.serviceWorker.register('sw.js'); }catch(e){}
 const startTab = (location.hash||'').slice(1);
 go(TABS.some(t=>t[0]===startTab) ? startTab : 'home');
 window.addEventListener('hashchange',()=>{ const h=location.hash.slice(1); if(TABS.some(t=>t[0]===h) && !document.getElementById('p-'+h).classList.contains('on')) go(h); });
