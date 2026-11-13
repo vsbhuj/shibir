@@ -549,10 +549,11 @@ body[data-g="kids"]{--bg:#F5C4C4}body[data-g="youth"]{--bg:#FBE39C}body[data-g="
 </div></div>
 <style>
 .sky,#now,#nowlab,#next,#wx,#dprog,#note,#prevl,.fab,#qbar,#bell,.top .ctl{display:none!important}
-html,body{height:100%!important;overflow:hidden!important}
+html,body{height:100%!important;overflow:hidden!important;overscroll-behavior:none!important;position:fixed;inset:0;width:100%}
+.app{display:none!important}
 body{background:linear-gradient(180deg,#273c5f 0%,#3a5180 50%,#415e8d 100%)!important}
 .app{min-height:0!important;padding:0!important;background:none!important}.content{padding:0!important}
-.fr{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:5}
+.fr{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:5;touch-action:none;overscroll-behavior:none}
 .frs{position:relative;background:url(k/frame.webp) center/100% 100% no-repeat;color:#fff;font-family:"Hind Vadodara",HV,sans-serif}
 .ft{position:absolute;white-space:nowrap;line-height:1.15;text-shadow:0 .1em .4em rgba(10,20,50,.35)}
 #frclock{font-size:48em;font-weight:600;font-family:var(--disp),"Hind Vadodara",sans-serif}
@@ -599,7 +600,7 @@ const isBrk=a=>/^અલ્પ વિરામ$/.test(a);
 const ALL=[];Object.keys(LW).map(Number).sort((a,b)=>a-b).forEach(d=>LW[d].forEach(x=>ALL.push({d,s:x[0],e:x[1],a:x[2],v:x[3],S:(d-1)*1440+x[0],E:(d-1)*1440+x[1]})));
 const split=a=>{const m=a.match(/^(.*?)\s*\((.*)\)\s*$/);if(m&&m[1])return[m[1],m[2]];return[a.replace(/[()]/g,""),""]};
 const $=id=>document.getElementById(id);
-function size(){const W=innerWidth,H=innerHeight,r=941/1672;let w=Math.min(W,H*r),h=w/r;const s=$("frs");s.style.width=w+"px";s.style.height=h+"px";s.style.fontSize=(w/941)+"px"}
+let lw=0,lh=0;function size(force){const W=innerWidth,H=innerHeight,r=941/1672;if(!force&&W===lw&&Math.abs(H-lh)<140)return;lw=W;lh=H;let w=Math.min(W,H*r),h=w/r;const s=$("frs");s.style.width=w+"px";s.style.height=h+"px";s.style.fontSize=(w/941)+"px"}
 function fitText(el,maxPx){el.style.transform="";const w=el.getBoundingClientRect().width,lim=maxPx*parseFloat($("frs").style.fontSize);if(w>lim){el.style.transformOrigin="0 50%";el.style.transform=`scaleX(${lim/w})`}}
 function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCMonth(),mx=d.getUTCHours()*60+d.getUTCMinutes()+d.getUTCSeconds()/60;
  $("frclock").textContent=t12(mx).replace(/(am|pm)$/," $1");$("frdate").textContent=WDN[d.getUTCDay()]+", "+gd(day)+" નવે.";
@@ -628,7 +629,7 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  $("frwv").textContent=W?`${gd(W.hi)}° / ${gd(W.lo)}°, વરસાદ ${gd(W.r)}%`:"ભુજ";$("frws").textContent=W?W.gu:"હવામાન મેળવાય છે…";fitText($("frwv"),420);
  $("frsr").textContent=sr?"સૂર્યોદય "+t12(sr[0]):"";$("frss").textContent=sr?"સૂર્યાસ્ત "+t12(sr[1]):""}
 window.g3draw=draw;
-document.addEventListener("DOMContentLoaded",()=>{size();addEventListener("resize",()=>{size();draw()});
+document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild($("fr"));size(true);addEventListener("resize",()=>{size(false)});addEventListener("orientationchange",()=>setTimeout(()=>size(true),300));
  const click=id=>()=>{const b=$(id);if(b)b.click()};$("hq").onclick=click("qbar");$("hb").onclick=click("bell");$("hn").onclick=click("fab");$("hd").onclick=click("fab");
  draw();setInterval(draw,20000)});
 })();
