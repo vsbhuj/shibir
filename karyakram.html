@@ -617,7 +617,7 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  else{$("frxk").textContent="";$("frxv").textContent="બધા કાર્યક્રમ પૂરા";$("frxs").textContent=""}
  const td=(mon===10&&LW[day])?ALL.filter(x=>x.d===day):[],tdi=td.filter(x=>!isBrk(x.a));
  if(tdi.length){const dn=tdi.filter(x=>x.E<=T).length;$("frpt").textContent=`આજે ${gd(tdi.length)}માંથી ${gd(dn)} કાર્યક્રમ પૂર્ણ`;$("frpb").style.width=(dn/tdi.length*100)+"%"}
- else{$("frpt").textContent=T<0?"શિબિર ૧૪ નવેમ્બરથી":"શિબિર પૂર્ણ";$("frpb").style.width=T<0?"0%":"100%"}
+ else{const pre=T<items[0].S;$("frpt").textContent=pre?"શિબિર ૧૪ નવેમ્બરથી":"શિબિર પૂર્ણ";$("frpb").style.width=pre?"0%":"100%"}
  $("frday").textContent=WDS[d.getUTCDay()];
  if(td.length){const f=td[0].S,la=Math.max(...td.map(x=>x.E)),pc=Math.max(0,Math.min(100,(T-f)/(la-f)*100));
   $("frd1").textContent=t12(td[0].s);$("frd2").textContent=t12(Math.max(...td.map(x=>x.e)));
@@ -626,7 +626,7 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  fitText($("frdm"),355);
  let W=null,sr=null;try{if(typeof WX!=="undefined"){const K=Object.keys(WX).map(Number).sort((a,b)=>a-b);if(K.length){const f=WX[day]&&mon===10?day:(T<0?K[0]:K[K.length-1]);W=WX[f]}}}catch(e){}
  try{if(typeof sunFor==="function")sr=sunFor(day)}catch(e){}
- $("frwv").textContent=W?`${gd(W.hi)}° / ${gd(W.lo)}°, વરસાદ ${gd(W.r)}%`:"ભુજ";$("frws").textContent=W?W.gu:"હવામાન મેળવાય છે…";fitText($("frwv"),420);
+ $("frwv").textContent=W?`${gd(W.hi)}° / ${gd(W.lo)}°, વરસાદ ${gd(W.r)}%`:"ભુજ";$("frws").textContent=W?W.gu:(navigator.onLine?"હવામાન મેળવાય છે…":"નેટ ચાલુ કરો");fitText($("frwv"),420);
  $("frsr").textContent=sr?"સૂર્યોદય "+t12(sr[0]):"";$("frss").textContent=sr?"સૂર્યાસ્ત "+t12(sr[1]):""}
 window.g3draw=draw;
 document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild($("fr"));size(true);addEventListener("resize",()=>{size(false)});addEventListener("orientationchange",()=>setTimeout(()=>size(true),300));
