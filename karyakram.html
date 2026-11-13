@@ -518,117 +518,77 @@ body[data-g="kids"]{--bg:#F5C4C4}body[data-g="youth"]{--bg:#FBE39C}body[data-g="
   <section class="line wxc" id="wx" style="margin:0 0 14px"></section>
   <div class="lab" id="nowlab"></div>
   <section class="now" id="now"><div class="art" id="art"></div><div class="nb" id="nb" aria-live="polite"></div></section>
-<div class="g3 g4" id="g3">
- <div class="g4scr">
-  <div class="g3top"><div class="g3clk"><b id="g3clock">–</b><i></i><span id="g3date"></span></div><div class="g3btns" id="g3btns"></div></div>
-  <div class="g4hero"><div class="g3tt"><div class="g4kick">લાઇવ કાર્યક્રમ</div><h1>૨૩મી શિબિર – મહામંત્ર</h1><p>📍 શ્રી સ્વામિનારાયણ કન્યા વિદ્યા મંદિર, ભુજ</p></div><div class="g4wx g3card" id="g3wx"></div></div>
-  <div class="g3lab"><i id="g3dot"></i><span id="g3lab">હમણાં</span></div>
-  <div class="g3now" id="g3now"></div>
-  <div class="g3next" id="g3next"></div>
-  <div class="g3prog" id="g3prog"><div class="pt"><span id="g3pt"></span><div class="bar"><i id="g3pb"></i></div></div></div>
-  <div class="g4stage"><div class="g4glow"></div><img src="k/maharaj.webp" alt=""></div>
- </div>
- <div class="g4dio"><img src="k/mandir.webp" alt=""></div>
-</div>
+<div class="fr" id="fr"><div class="frs" id="frs">
+ <div class="ft" style="left:10.627%;top:5.263%" id="frclock"></div>
+ <div class="ft" style="left:37.194%;top:6.699%" id="frdate"></div>
+ <div class="ft f-ttl" style="left:11.477%;top:12.440%">૨૩મી શિબિર – મહામંત્ર</div>
+ <div class="ft f-plc" style="left:11.690%;top:16.029%">શ્રી સ્વામિનારાયણ કન્યા વિદ્યા મંદિર, ભુજ</div>
+ <div class="ft f-wk" style="left:35.069%;top:23.086%">આજનું હવામાન</div>
+ <div class="ft f-wv" style="left:35.069%;top:25.000%" id="frwv"></div>
+ <div class="ft f-ws" style="left:35.069%;top:27.632%" id="frws"></div>
+ <div class="ft f-dt" style="left:19.554%;top:31.519%" id="frd1"></div>
+ <div class="ft f-dm" style="left:34.644%;top:31.519%" id="frdm"></div>
+ <div class="ft f-dt" style="left:79.915%;top:31.579%" id="frd2"></div>
+ <div class="fpatch" style="left:37.2%;top:33.49%;width:6.4%;height:3.35%"></div><div class="f-trk" style="left:14.346%;top:34.569%"><i id="frtk"></i><b id="frkn"></b></div>
+ <div class="ft f-sr" style="left:25.080%;top:36.782%" id="frsr"></div>
+ <div class="ft f-sr" style="left:66.738%;top:36.782%" id="frss"></div>
+ <div class="ft f-lab" style="left:17.216%;top:42.045%" id="frlab">હમણાં</div>
+ <div class="f-nimg" id="frimg"><img alt=""></div>
+ <div class="ft f-na" style="left:15.940%;top:46.531%" id="frna"></div>
+ <div class="ft f-ns" style="left:16.153%;top:50.359%" id="frns"></div>
+ <div class="ft f-xk" style="left:32.944%;top:57.117%" id="frxk"></div>
+ <div class="ft f-xv" style="left:32.944%;top:58.911%" id="frxv"></div>
+ <div class="ft f-xs" style="left:32.944%;top:61.722%" id="frxs"></div>
+ <div class="ft f-pt" style="left:12.540%;top:66.746%" id="frpt"></div>
+ <div class="f-ptk" style="left:12.752%;top:69.976%"><i id="frpb"></i></div>
+ <div class="ft f-day" style="left:79.915%;top:68.182%" id="frday"></div>
+ <button class="f-hit" style="left:78.108%;top:7.476%;width:6.6%;height:3.8%" id="hq" aria-label="શોધો"></button>
+ <button class="f-hit" style="left:86.079%;top:7.656%;width:6.6%;height:3.8%" id="hb" aria-label="જાણ"></button>
+ <button class="f-hit" style="left:11.158%;top:56.220%;width:82%;height:8.7%" id="hn" aria-label="આખો દિવસ"></button>
+ <button class="f-hit" style="left:66.419%;top:66.986%;width:25%;height:5.2%" id="hd" aria-label="આખો દિવસ"></button>
+</div></div>
 <style>
-.sky,#now,#nowlab,#next,#wx,#dprog,#note,#prevl{display:none!important}
-body{background:var(--g3bg)!important;background-attachment:fixed!important}
-.app{background:none!important;padding-bottom:0!important}.content{padding:0 10px!important}
-body,body[data-p=night]{--g3bg:linear-gradient(180deg,#1b2150 0%,#34407a 38%,#5e5f9e 70%,#a07ab0 100%)}
-body[data-p=dawn]{--g3bg:linear-gradient(180deg,#2c2d6e 0%,#6a4f9a 40%,#c2779e 72%,#f2b07a 100%)}
-body[data-p=day]{--g3bg:linear-gradient(180deg,#2a4a94 0%,#4f6cb4 40%,#7f7cbc 72%,#c08fb8 100%)}
-body[data-p=dusk]{--g3bg:linear-gradient(180deg,#24245e 0%,#5a3f8e 40%,#b0628e 72%,#ef9a6a 100%)}
-.g3{position:relative;color:#fff;margin:10px 0 0;text-shadow:0 1px 6px rgba(20,20,60,.35)}
-.g3panel{position:relative;z-index:2;border-radius:30px;padding:16px 14px 18px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(40,40,110,.12));border:1.5px solid rgba(255,255,255,.38);box-shadow:0 20px 50px rgba(10,10,40,.35),inset 0 1px 0 rgba(255,255,255,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.g3top{display:flex;justify-content:space-between;align-items:flex-start}
-.g3clk{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;white-space:nowrap}
-.g3clk b{font-family:var(--disp);font-size:clamp(1.6rem,7.6vw,2.3rem);font-weight:600;line-height:1}
-.g3clk i{width:1.5px;height:26px;background:rgba(255,255,255,.55)}
-.g3clk span{font-size:.9rem;opacity:.95}
-.g3btns{display:flex;gap:8px}
-.g3btns .bell{position:static!important;width:42px!important;height:42px!important;background:rgba(255,255,255,.12)!important;border:1.5px solid #E3B55A!important;color:#FFE7A3!important;box-shadow:0 0 12px rgba(227,181,90,.35)!important}
-.g3hero{display:flex;align-items:center;gap:6px;margin-top:6px;min-height:150px}
-.g3tt{flex:1;min-width:0}
-.g3tt h1{margin:4px 0 2px;font-family:var(--disp);white-space:nowrap;font-size:clamp(1.15rem,5.6vw,1.8rem);font-weight:700;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.3)}
-.g3tt p{margin:0 0 4px;font-size:.8rem;opacity:.95}
-.g3div{display:flex;align-items:center;gap:6px;color:#F5C451}.g3div i{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,#F5C451)}.g3div i:last-child{background:linear-gradient(90deg,#F5C451,transparent)}.g3div b{font-size:.9rem;line-height:1}
-.g3mh{width:34%;max-width:170px;height:160px;flex:none;position:relative;margin-right:-6px;overflow:hidden;border-radius:0 0 50% 50%}
-.g3mh img{width:210%;margin-left:-55%;margin-top:-4%;height:auto;display:block;-webkit-mask:linear-gradient(180deg,#000 70%,transparent);mask:linear-gradient(180deg,#000 70%,transparent);filter:drop-shadow(0 0 16px rgba(255,210,160,.5))}
-.g3card{background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(30,30,90,.16));border:1.5px solid rgba(255,255,255,.42);box-shadow:0 10px 26px rgba(10,10,40,.25),0 0 18px rgba(255,214,140,.18),inset 0 1px 0 rgba(255,255,255,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.g3wx{margin-top:10px;padding:14px 14px 12px;border-radius:22px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px)}
-.g3wx:empty{display:none}
-.g3wx .r1{display:flex;align-items:center;gap:12px}
-.g3wx .ic{width:72px;height:66px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)}
-.g3wx .ic svg{width:48px;height:48px}
-.g3wx .t{flex:1;min-width:0;border-left:1.5px solid rgba(255,255,255,.4);padding-left:12px}
-.g3wx .k{color:#7CF0E6;font-weight:700;font-size:.9rem}.g3wx .v{font-size:1.25rem;font-weight:700;line-height:1.2}.g3 .s{color:#fff!important}.g3wx .s{font-size:.88rem;opacity:.95}
-.g3wx .r2{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:12px;font-size:.76rem;white-space:nowrap}
-.g3wx .r2 .m{font-weight:600;white-space:normal;text-align:center;flex:1;border-left:1.5px solid rgba(255,255,255,.35);border-right:1.5px solid rgba(255,255,255,.35);padding:0 6px}
-.g3wx .trk{position:relative;height:10px;border-radius:6px;margin:10px 4px 6px;background:linear-gradient(90deg,#F7C35A,#9FB7F0 55%,#B98AE8)}
-.g3wx .trk b{position:absolute;top:50%;width:22px;height:22px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#FFE38A,#F5B700);border:3px solid #fff;box-shadow:0 0 12px rgba(255,210,90,.9)}
-.g3wx .r3{display:flex;justify-content:space-around;font-size:.86rem;margin-top:8px}
-.g3lab{display:flex;align-items:center;gap:10px;margin:16px 6px 8px;font-size:1.02rem;font-weight:600}
-.g3lab i{width:14px;height:14px;border-radius:50%;background:#F5B700;box-shadow:0 0 0 5px rgba(245,183,0,.25),0 0 14px #F5B700;animation:g3p 1.6s ease-in-out infinite}
-@keyframes g3p{50%{box-shadow:0 0 0 9px rgba(245,183,0,.08),0 0 20px #F5B700}}
-.g3now{position:relative;display:flex;min-height:150px;border-radius:24px;overflow:hidden}
-.g3now .tx{position:relative;z-index:2;flex:1.1;padding:16px 10px 14px 16px;display:flex;flex-direction:column;justify-content:center}
-.g3now .im{position:absolute;right:0;top:0;bottom:0;width:52%;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%)}
-.g3now .im img{width:100%;height:100%;object-fit:cover;animation:g3k 14s ease-in-out infinite alternate}
-@keyframes g3k{to{transform:scale(1.08)}}
-.g3now .im:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.25),transparent 30%)}
-.g3now .a{font-family:var(--disp);font-size:clamp(1.35rem,6.4vw,1.75rem);font-weight:700;line-height:1.15;max-width:58%;text-shadow:0 2px 10px rgba(0,0,0,.3)}
-.g3now .sb{font-size:.86rem;opacity:.92;max-width:58%;margin-top:2px}
-.g3now .sp{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:3px 10px;border-radius:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);font-size:.82rem;max-width:58%;width:max-content}
-.g3now .tm{font-size:.88rem;margin-top:6px;opacity:.95;max-width:58%}
-.g3now .bar{height:6px;border-radius:4px;background:rgba(255,255,255,.25);margin-top:8px;max-width:56%}.g3now .bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#F7C35A,#FF8FB1)}
-.g3now .lf{font-size:.82rem;margin-top:4px;opacity:.95}
-.g3next{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px 14px;border-radius:40px;cursor:pointer}
-.g3next .ci{width:58px;height:52px;flex:none;border-radius:18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#8FE6C6,#3CC199);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 4px 10px rgba(0,0,0,.2)}
-.g3next .ci svg{width:32px;height:32px;color:#0b4a3a}
-.g3next .t{flex:1;min-width:0;border-left:1.5px solid rgba(255,255,255,.4);padding-left:12px}
-.g3next .k{color:#7CF0C8;font-weight:700;font-size:.88rem}.g3next .v{font-size:1.2rem;font-weight:700;line-height:1.2}.g3next .s{font-size:.88rem;opacity:.92}
-.g3next .go{width:46px;height:42px;flex:none;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#3CC199,#0E8F6E);box-shadow:0 4px 10px rgba(0,0,0,.25)}
-.g3next .go svg{width:22px;height:22px;color:#fff}
-.g3prog{display:flex;align-items:center;gap:12px;margin-top:16px}
-.g3prog .pt{flex:1;font-size:.95rem;font-weight:600}
-.g3prog .bar{height:9px;border-radius:6px;background:rgba(255,255,255,.55);margin-top:8px;overflow:hidden}.g3prog .bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#7F6BF0,#A98BFF)}
-.g3prog .fab{position:static!important;transform:skewX(-10deg);border-radius:16px!important;padding:10px 22px!important;background:linear-gradient(180deg,#FFE08A,#F5B700)!important;color:#3a2200!important;box-shadow:0 8px 20px rgba(245,183,0,.45)!important;border:0!important}
-.g3prog .fab>*{transform:skewX(10deg)}
-.g3base{position:relative;z-index:1;margin:-26px -10px 0;pointer-events:none}
-.g3base img{display:block;width:100%;filter:drop-shadow(0 10px 20px rgba(0,0,0,.3))}
-
-.g4{perspective:1500px;margin-top:8px}
-.g4scr{position:relative;z-index:1;transform:rotateX(3deg);transform-origin:50% 100%;border-radius:34px;padding:16px 14px 0;background:linear-gradient(165deg,rgba(255,255,255,.20),rgba(255,255,255,.05) 55%,rgba(255,255,255,.10));border:1.5px solid rgba(255,255,255,.5);box-shadow:inset 0 0 0 7px rgba(255,255,255,.06),inset 0 1px 0 rgba(255,255,255,.6),0 40px 70px rgba(5,8,25,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden}
-.g4hero{display:flex;align-items:flex-start;gap:10px;margin-top:14px}
-.g4kick{font-size:.78rem;letter-spacing:.12em;opacity:.85;font-weight:600;color:#FFE7A3}
-.g4hero h1{white-space:normal!important;font-family:"Hind Vadodara",var(--disp)!important;font-size:clamp(1.5rem,7.4vw,2.2rem)!important;line-height:1.12!important}
-.g4hero p{font-size:.84rem!important}
-.g4wx{flex:none;width:126px;border-radius:20px;padding:10px 10px 9px;text-align:left}
-.g4wx:empty{display:none}
-.g4wx .k{font-size:.74rem;opacity:.9}.g4wx .r{display:flex;align-items:center;gap:6px;margin-top:2px}.g4wx .r svg{width:34px;height:34px}.g4wx .v{font-size:1.25rem;font-weight:700;line-height:1}
-.g4wx .s{font-size:.74rem;margin-top:2px}.g4wx .ss{font-size:.68rem;opacity:.9;margin-top:4px;line-height:1.35}
-.g4stage{position:relative;height:290px;margin:6px -14px 0;pointer-events:none}
-.g4stage img{position:absolute;left:50%;bottom:20px;height:270px;transform:translateX(-50%);filter:drop-shadow(0 0 24px rgba(255,214,150,.55));animation:g4f 6s ease-in-out infinite}
-@keyframes g4f{50%{transform:translateX(-50%) translateY(-6px)}}
-.g4glow{position:absolute;left:50%;bottom:20px;width:300px;height:300px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,220,150,.55),rgba(255,180,120,.15) 45%,transparent 70%)}
-.g4dio{position:relative;z-index:3;margin:-170px -30px 0;pointer-events:none}
-.g4dio>img{display:block;width:100%;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
-.g4btns{position:absolute;left:0;right:0;bottom:-30px;display:flex;justify-content:center;gap:10px;pointer-events:auto}
-.g4b,.g4btns .fab{position:static!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:92px;height:62px!important;padding:6px 12px!important;border-radius:18px!important;text-decoration:none;color:#fff!important;font-size:1.25rem;background:linear-gradient(160deg,rgba(255,255,255,.32),rgba(255,255,255,.12))!important;border:1.5px solid rgba(255,255,255,.55)!important;box-shadow:0 10px 22px rgba(0,0,0,.3)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:none!important}
-.g4b span,.g4btns .fab span{font-size:.8rem;font-weight:600}
-.g4btns .fab{background:linear-gradient(160deg,#5b8cff,#2f5fe0)!important;border-color:rgba(255,255,255,.6)!important}
-.g4btns .fab svg{width:24px;height:24px}
-.g3{padding-bottom:24px}
-body,body[data-p=night]{--g3bg:radial-gradient(120% 70% at 50% 10%,#3a4370 0%,#1e2340 55%,#12152a 100%)}
-body[data-p=dawn]{--g3bg:radial-gradient(120% 70% at 50% 10%,#6b5585 0%,#3a2f55 55%,#1d1832 100%)}
-body[data-p=day]{--g3bg:radial-gradient(120% 70% at 50% 10%,#5f78b0 0%,#34477a 55%,#1d2748 100%)}
-body[data-p=dusk]{--g3bg:radial-gradient(120% 70% at 50% 10%,#7a5585 0%,#3f2e5a 55%,#1e1833 100%)}
+.sky,#now,#nowlab,#next,#wx,#dprog,#note,#prevl,.fab,#qbar,#bell,.top .ctl{display:none!important}
+html,body{height:100%!important;overflow:hidden!important}
+body{background:linear-gradient(180deg,#273c5f 0%,#3a5180 50%,#415e8d 100%)!important}
+.app{min-height:0!important;padding:0!important;background:none!important}.content{padding:0!important}
+.fr{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:5}
+.frs{position:relative;background:url(k/frame.webp) center/100% 100% no-repeat;color:#fff;font-family:"Hind Vadodara",HV,sans-serif}
+.ft{position:absolute;white-space:nowrap;line-height:1.15;text-shadow:0 .1em .4em rgba(10,20,50,.35)}
+#frclock{font-size:48em;font-weight:600;font-family:var(--disp),"Hind Vadodara",sans-serif}
+#frdate{font-size:26em;opacity:.95}
+.f-ttl{font-size:46em;font-weight:700;font-family:var(--disp),"Hind Vadodara",sans-serif}
+.f-plc{font-size:23.5em;opacity:.95}
+.f-wk{font-size:23em;font-weight:700;color:#5FF0F0}
+.f-wv{font-size:33em;font-weight:700}
+.f-ws{font-size:22em}
+.f-dt{font-size:22em}
+.f-dm{font-size:21em;width:37.7%;text-align:center}
+.f-trk{position:absolute;width:73.86%;height:1.2%;border-radius:1em}
+.f-trk i{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#FFD25A 0%,#F7C35A 30%,#9DB4F2 55%,#B38AF0 100%)}
+.f-trk b{position:absolute;top:50%;width:3.6em;height:3.6em;margin:-1.8em 0 0 -1.8em;width:36em;height:36em;margin:-18em 0 0 -18em;border-radius:50%;background:radial-gradient(circle,#FFE48A,#F5B700);border:4em solid #FFF6D0;box-shadow:0 0 14em rgba(255,210,90,.95)}
+.f-sr{font-size:22em}
+.f-lab{font-size:24em;font-weight:600}
+.f-nimg{position:absolute;left:52.6%;top:43.42%;width:40.7%;height:11.18%;clip-path:polygon(16.2% 0,100% 0,100% 100%,0 100%);border-radius:0 2.2em 2.2em 0;overflow:hidden}
+.f-nimg img{width:100%;height:100%;object-fit:cover;animation:frk 14s ease-in-out infinite alternate;border-radius:0 26em 26em 0}
+@keyframes frk{to{transform:scale(1.08)}}
+.f-na{font-size:44em;font-weight:700;font-family:var(--disp),"Hind Vadodara",sans-serif}
+.f-ns{font-size:22em;opacity:.95}
+.f-xk{font-size:22em;font-weight:700;color:#0E6B4C;text-shadow:none}
+.f-xv{font-size:33em;font-weight:700;color:#14214a;text-shadow:none}
+.f-xs{font-size:23em;font-weight:600;color:#14214a;text-shadow:none}
+.f-pt{font-size:26em;font-weight:600}
+.f-ptk{position:absolute;width:50.2%;height:.95%;border-radius:1em;background:#E4E2F0;overflow:hidden}
+.f-ptk i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7A5CF0,#A58BFF)}
+.f-day{font-size:34em;font-weight:700;color:#2a1a00;text-shadow:none}
+.fpatch{position:absolute;background:url(k/frame.webp) no-repeat;background-size:941em 1672em;background-position:-470em -560em}
+.f-hit{position:absolute;background:transparent;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 </style>
 <script>
 (function(){
 const LW={"13": [[960, 1080, "શિબિર સ્થળે આગમન", ""], [1110, 1130, "નિત્ય નિયમ", "સંગીતજ્ઞ સંતો"], [1130, 1145, "સમૂહગાન (મહામંત્ર ચોપાઈ)", ""], [1145, 1160, "સૂચના", ""], [1170, 1230, "ભોજનપ્રસાદ", ""], [1215, 1235, "ચેષ્ટા", "સંગીતજ્ઞ સંતો"], [1235, 1305, "ગ્રુપચર્ચા + સંતસમાગમ", "હરિસ્વરૂપ સ્વામી"], [1320, 1439, "યોગનિદ્રા", ""]], "14": [[300, 330, "ઉત્થાપન", ""], [330, 375, "પ્રાતઃપૂજા", "કુંજવિહારી સ્વામી"], [375, 410, "આરતી - કથા (વચનામૃત ગ.પ્ર.૪૮)", "વાત્સલ્યમુનિ સ્વામી"], [420, 480, "અલ્પ આહાર", ""], [480, 500, "આગમન તૈયારી", ""], [500, 570, "આગમન, દીપપ્રાગટ્ય, આશીર્વાદ", "મહંત સ્વામી"], [570, 600, "મહામંત્ર અનુષ્ઠાન", ""], [610, 640, "અલ્પ વિરામ", ""], [650, 710, "વ્યાખ્યાનમાળા (પાહિમામ્)", "આનંદસ્વરૂપ સ્વામી"], [720, 900, "માનસી, ભોજન પ્રસાદ, વિશ્રામ", ""], [900, 930, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [930, 960, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [975, 1035, "વ્યાખ્યાનમાળા (The Ultimate Gift)", "મોરલીમનોહર સ્વામી"], [1050, 1080, "(આશીર્વાદ)", "એક સંત"], [1080, 1100, "અલ્પ વિરામ", ""], [1110, 1130, "નિત્ય નિયમ", "સંગીતજ્ઞ સંતો"], [1130, 1145, "સમૂહગાન (મહામંત્ર ચોપાઈ)", ""], [1145, 1160, "આશીર્વાદ", "એક સંત"], [1170, 1230, "ભોજનપ્રસાદ", ""], [1215, 1235, "ચેષ્ટા", "સંગીતજ્ઞ સંતો"], [1235, 1305, "ગ્રુપચર્ચા + સંતસમાગમ", "હરિસ્વરૂપ સ્વામી"], [1320, 1439, "યોગ નિદ્રા", ""]], "15": [[300, 330, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [330, 375, "પ્રાતઃપૂજા", "કુંજવિહારી સ્વામી"], [375, 410, "આરતી - કથા (વચનામૃત ગ.પ્ર.૭૦ પ્ર.૧)", "હરિપ્રિય સ્વામી"], [420, 480, "અલ્પ આહાર", "સંગીતજ્ઞ સંતો"], [495, 510, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", ""], [510, 540, "મહામંત્ર અનુષ્ઠાન", ""], [550, 610, "વ્યાખ્યાનમાળા (મારું મન કોના હાથમાં)", "ગોલોક સ્વામી"], [620, 650, "આશીર્વાદ", "બે સંતો"], [650, 680, "અલ્પ વિરામ", ""], [690, 720, "(મનન)", "હરિસ્વરૂપ સ્વામી"], [720, 900, "માનસી, ભોજન પ્રસાદ, વિશ્રામ", ""], [900, 930, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [930, 960, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [975, 1035, "વ્યાખ્યાનમાળા (મહામંત્ર મહિમા)", "શ્યામકૃષ્ણદાસજી સ્વામી"], [1050, 1080, "(આશીર્વાદ)", "એક સંત"], [1080, 1100, "અલ્પ વિરામ", ""], [1110, 1130, "નિત્ય નિયમ", "સંગીતજ્ઞ સંતો"], [1130, 1145, "સમૂહગાન (મહામંત્ર ચોપાઈ)", ""], [1145, 1160, "આશીર્વાદ", "એક સંત"], [1170, 1230, "ભોજનપ્રસાદ", ""], [1215, 1235, "ચેષ્ટા", "સંગીતજ્ઞ સંતો"], [1235, 1305, "ગ્રુપચર્ચા + સંતસમાગમ", "હરિસ્વરૂપ સ્વામી"], [1320, 1439, "યોગ નિદ્રા", ""]], "16": [[300, 330, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [330, 375, "પ્રાતઃપૂજા", "કુંજવિહારી સ્વામી"], [375, 410, "આરતી - કથા (વચનામૃત ગ.મ.૧૨ પ્ર.૧)", "મુકુંદ સ્વામી"], [420, 480, "અલ્પ આહાર", ""], [495, 510, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", ""], [510, 540, "મહામંત્ર અનુષ્ઠાન", "સંગીતજ્ઞ સંતો"], [550, 610, "પીપીટી / વ્યાખ્યાનમાળા (મારું સાચું સરનામું શું)", "ઘનશ્યામસ્વરૂપદાસજી"], [620, 650, "આશીર્વાદ", "એક સંત"], [650, 680, "અલ્પ વિરામ", ""], [690, 720, "(મનન)", "હરિસ્વરૂપ સ્વામી"], [720, 900, "માનસી, ભોજન પ્રસાદ, વિશ્રામ", ""], [900, 930, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [930, 960, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [975, 1035, "વ્યાખ્યાનમાળા (મંત્રજાપ)", "સંતસ્વરૂપદાસજી"], [1050, 1080, "(આશીર્વાદ)", "એક સંત"], [1080, 1100, "અલ્પ વિરામ", ""], [1110, 1130, "નિત્ય નિયમ", "સંગીતજ્ઞ સંતો"], [1130, 1145, "સમૂહગાન (મહામંત્ર ચોપાઈ)", ""], [1145, 1160, "આશીર્વાદ", "એક સંત"], [1170, 1230, "ભોજનપ્રસાદ", ""], [1215, 1235, "ચેષ્ટા", "સંગીતજ્ઞ સંતો"], [1235, 1305, "ગ્રુપચર્ચા + સંતસમાગમ", "હરિસ્વરૂપ સ્વામી"], [1320, 1439, "યોગ નિદ્રા", ""]], "17": [[300, 330, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [330, 375, "પ્રાતઃપૂજા", "કુંજવિહારી સ્વામી"], [375, 410, "આરતી - કથા (વચનામૃત ગ.પ્ર.૮ પ્ર.૧)", "રામદાસ સ્વામી"], [420, 480, "અલ્પ આહાર", ""], [480, 510, "ગ્રુપ ફોટો", ""], [510, 530, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [540, 600, "વ્યાખ્યાનમાળા (મારું યુવક મંડળ)", "ઘનશ્યામનંદન સ્વામી"], [610, 625, "આશીર્વાદ", "એક સંત"], [630, 660, "અલ્પ વિરામ", ""], [670, 720, "(બહેનોનું સત્ર + ગ્રુપ ફોટો) + (મનન)", "હરિસ્વરૂપ સ્વામી"], [720, 900, "માનસી, ભોજન પ્રસાદ, વિશ્રામ", ""], [900, 930, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [930, 960, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [975, 1035, "વ્યાખ્યાનમાળા (અનુભવી આનંદ)", "રાઘવમુનિ સ્વામી"], [1050, 1080, "(આશીર્વાદ)", "એક સંત"], [1080, 1100, "અલ્પ વિરામ", ""], [1110, 1130, "નિત્ય નિયમ", "સંગીતજ્ઞ સંતો"], [1130, 1145, "સમૂહગાન (મહામંત્ર ચોપાઈ)", ""], [1145, 1160, "આશીર્વાદ", "એક સંત"], [1170, 1230, "ભોજનપ્રસાદ", ""], [1215, 1235, "ચેષ્ટા", "સંગીતજ્ઞ સંતો"], [1235, 1305, "ગ્રુપચર્ચા + સંતસમાગમ", "હરિસ્વરૂપ સ્વામી"], [1320, 1439, "યોગ નિદ્રા", ""]], "18": [[300, 330, "ઉત્થાપન", "ઉતારાના સ્વયંસેવકો"], [330, 375, "પ્રાતઃપૂજા", "કુંજવિહારી સ્વામી"], [375, 410, "આરતી - કથા (વચનામૃત ગ.મ.૪૧)", "યોગેશ્વર સ્વામી"], [420, 480, "અલ્પ આહાર", ""], [480, 500, "કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)", "સંગીતજ્ઞ સંતો"], [510, 585, "શિબિર મૂલ્યાંકન", "હરિસ્વરૂપ સ્વામી"], [585, 600, "અંતિમ જાહેરાત", ""], [600, 660, "આભારવિધિ, નિયમ - ભલામણ.", ""], [660, 690, "સ્નેહમિલન + અલ્પ વિરામ + રાસોત્સવ તૈયારી", ""], [690, 750, "રાસોત્સવ", "સંગીતજ્ઞ સંતો"], [720, 900, "માનસી, ભોજન પ્રસાદ, વિદાય", ""]]};
 const G="૦૧૨૩૪૫૬૭૮૯",gd=s=>String(s).replace(/\d/g,d=>G[d]);
-const t12=m=>{let h=Math.floor(m/60)%24,x=m%60;const ap=h<12?"am":"pm";h=h%12||12;return gd(h+":"+String(x).padStart(2,"0"))+ap};
+const t12=m=>{let h=Math.floor(m/60)%24,x=Math.floor(m%60);const ap=h<12?"am":"pm";h=h%12||12;return gd(h+":"+String(x).padStart(2,"0"))+ap};
 const WDN=["રવિવાર","સોમવાર","મંગળવાર","બુધવાર","ગુરુવાર","શુક્રવાર","શનિવાર"],WDS=["રવિ","સોમ","મંગળ","બુધ","ગુરુ","શુક્ર","શનિ"];
 const IMG=[["ઉત્થાપન","utthapan"],["આરતી","aarti"],["પૂજા","puja"],["ફોટો","photo"],["રાસ","raas"],["સ્નેહમિલન","raas"],["દીપ","deep"],["આગમન","deep"],["આહાર","bhojan"],["ભોજન","bhojan"],["માનસી","bhojan"],["કીર્તન","kirtan"],["સમૂહગાન","kirtan"],["અનુષ્ઠાન","mala"],["નિત્ય નિયમ","mala"],["ચેષ્ટા","chesta"],["ગ્રુપચર્ચા","group"],["મૂલ્યાંકન","group"],["કથા","katha"],["વ્યાખ્યાન","katha"],["મનન","katha"],["પીપીટી","katha"],["આશીર્વાદ","ashirvad"],["આભાર","ashirvad"],["નિદ્રા","nidra"],["સૂચના","jaherat"],["જાહેરાત","jaherat"],["વિરામ","vishram"],["વિશ્રામ","vishram"]];
 const img=a=>"k/"+((IMG.find(x=>a.includes(x[0]))||[0,"vishram"])[1])+".webp";
@@ -636,43 +596,40 @@ const OFF=5.5*36e5,q=new URLSearchParams(location.search).get("t"),t0=Date.now()
 const now=()=>q?Date.parse(q+":00Z")-OFF+(Date.now()-t0):Date.now();
 const dur=m=>{m=Math.max(1,Math.round(m));if(m<60)return gd(m)+" મિનિટ";if(m<1440){const h=Math.floor(m/60),r=m%60;return gd(h)+" કલાક"+(r?" "+gd(r)+" મિનિટ":"")}const d=Math.floor(m/1440),h=Math.floor(m%1440/60);return gd(d)+" દિવસ"+(h?" "+gd(h)+" કલાક":"")};
 const isBrk=a=>/^અલ્પ વિરામ$/.test(a);
-const ARW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
-const CLK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
-function all(){const o=[];Object.keys(LW).map(Number).sort((a,b)=>a-b).forEach(d=>LW[d].forEach(x=>o.push({d,s:x[0],e:x[1],a:x[2],v:x[3],S:(d-1)*1440+x[0],E:(d-1)*1440+x[1]})));return o}
-const ALL=all();
+const ALL=[];Object.keys(LW).map(Number).sort((a,b)=>a-b).forEach(d=>LW[d].forEach(x=>ALL.push({d,s:x[0],e:x[1],a:x[2],v:x[3],S:(d-1)*1440+x[0],E:(d-1)*1440+x[1]})));
 const split=a=>{const m=a.match(/^(.*?)\s*\((.*)\)\s*$/);if(m&&m[1])return[m[1],m[2]];return[a.replace(/[()]/g,""),""]};
+const $=id=>document.getElementById(id);
+function size(){const W=innerWidth,H=innerHeight,r=941/1672;let w=Math.min(W,H*r),h=w/r;const s=$("frs");s.style.width=w+"px";s.style.height=h+"px";s.style.fontSize=(w/941)+"px"}
+function fitText(el,maxPx){el.style.transform="";const w=el.getBoundingClientRect().width,lim=maxPx*parseFloat($("frs").style.fontSize);if(w>lim){el.style.transformOrigin="0 50%";el.style.transform=`scaleX(${lim/w})`}}
 function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCMonth(),mx=d.getUTCHours()*60+d.getUTCMinutes()+d.getUTCSeconds()/60;
- const $=id=>document.getElementById(id);
- $("g3clock").textContent=t12(Math.floor(mx)).replace(/(am|pm)$/," $1");
- $("g3date").textContent=WDN[d.getUTCDay()]+", "+gd(day)+" નવે.";
- const T=mon===10?(day-1)*1440+mx:(mon<10?-1e9:1e9);
- const items=ALL.filter(x=>!isBrk(x.a));
+ $("frclock").textContent=t12(mx).replace(/(am|pm)$/," $1");$("frdate").textContent=WDN[d.getUTCDay()]+", "+gd(day)+" નવે.";
+ const T=mon===10?(day-1)*1440+mx:(mon<10?-1e9:1e9),items=ALL.filter(x=>!isBrk(x.a));
  const cur=ALL.filter(x=>x.S<=T&&T<x.E&&!isBrk(x.a)).pop(),nx=items.find(x=>x.S>T&&x!==cur);
- // now card
- let h="",im="";
- if(T<items[0].S){$("g3lab").textContent="શિબિર";im="k/deep.webp";h=`<div class="a">શિબિર શરૂ થવામાં</div><div class="sb" style="font-size:1.2rem;font-weight:700">${dur(items[0].S-T)}</div><div class="tm">${WDN[(new Date(Date.UTC(2026,10,items[0].d))).getUTCDay()]}, ${t12(items[0].s)} થી</div>`}
- else if(cur){$("g3lab").textContent="હમણાં ચાલુ છે";im=img(cur.a);const[t1,t2]=split(cur.a);const pc=cur.e===1439?0:Math.min(100,(T-cur.S)/(cur.E-cur.S)*100);
-  h=`<div class="a">${t1}</div>${t2?`<div class="sb">${t2}</div>`:""}${cur.v?`<div class="sp">🎤 ${cur.v}</div>`:""}<div class="tm">${t12(cur.s)}${cur.e===1439?" પછી":" – "+t12(cur.e)}</div>${cur.e===1439?"":`<div class="bar"><i style="width:${pc}%"></i></div><div class="lf">${dur(cur.E-T)} બાકી</div>`}`}
- else if(nx){$("g3lab").textContent="હમણાં";im="k/vishram.webp";h=`<div class="a">થોડો વિરામ</div><div class="tm">હવે પછીનો કાર્યક્રમ ${dur(nx.S-T)} પછી</div>`}
- else{$("g3lab").textContent="શિબિર";im="k/ashirvad.webp";h=`<div class="a">બધા કાર્યક્રમ પૂરા થયા</div><div class="tm">સૌનો આભાર. જય સ્વામિનારાયણ</div>`}
- const nw=$("g3now");if(nw.dataset.im!==im){nw.dataset.im=im;nw.innerHTML=`<div class="tx"></div><div class="im"><img src="${im}" alt=""></div>`}nw.querySelector(".tx").innerHTML=h;
- // next card
- if(nx&&T>=items[0].S){const[t1]=split(nx.a);$("g3next").style.display="";$("g3next").innerHTML=`<div class="ci">${CLK}</div><div class="t"><div class="k">હવે પછી, ${dur(nx.S-T)} પછી</div><div class="v">${t1}</div><div class="s">${nx.d!==day?WDS[(new Date(Date.UTC(2026,10,nx.d))).getUTCDay()]+", ":""}${t12(nx.s)}</div></div><div class="go">${ARW}</div>`}else $("g3next").style.display="none";
- // today progress + day strip
+ let lab="હમણાં",na="",ns="",im="";
+ if(T<items[0].S){lab="શિબિર";na="શિબિર શરૂ થવામાં";ns=dur(items[0].S-T)+" બાકી";im="k/deep.webp"}
+ else if(cur){lab="હમણાં ચાલુ છે";const[t1,t2]=split(cur.a);na=t1;ns=[cur.v,cur.e===1439?t12(cur.s)+" પછી":dur(cur.E-T)+" બાકી"].filter(Boolean).join(" • ");im=img(cur.a)}
+ else if(nx){na="થોડો વિરામ";ns="હવે પછીનો કાર્યક્રમ "+dur(nx.S-T)+" પછી";im="k/vishram.webp"}
+ else{lab="શિબિર";na="બધા કાર્યક્રમ પૂરા થયા";ns="સૌનો આભાર. જય સ્વામિનારાયણ";im="k/ashirvad.webp"}
+ $("frlab").textContent=lab;$("frna").textContent=na;$("frns").textContent=ns;fitText($("frna"),400);fitText($("frns"),400);
+ const ii=$("frimg").querySelector("img");if(ii.getAttribute("src")!==im)ii.src=im;
+ if(nx){const[t1]=split(nx.a);$("frxk").textContent="હવે પછી, "+dur(nx.S-T)+" પછી";$("frxv").textContent=t1;$("frxs").textContent=(nx.d!==day?WDS[new Date(Date.UTC(2026,10,nx.d)).getUTCDay()]+", ":"")+t12(nx.s);fitText($("frxv"),440);fitText($("frxk"),440)}
+ else{$("frxk").textContent="";$("frxv").textContent="બધા કાર્યક્રમ પૂરા";$("frxs").textContent=""}
  const td=(mon===10&&LW[day])?ALL.filter(x=>x.d===day):[],tdi=td.filter(x=>!isBrk(x.a));
- if(tdi.length){const dn=tdi.filter(x=>x.E<=T).length;$("g3pt").textContent=`આજે ${gd(tdi.length)}માંથી ${gd(dn)} કાર્યક્રમ પૂર્ણ`;$("g3pb").style.width=(dn/tdi.length*100)+"%";$("g3prog").querySelector(".pt").style.visibility=""}
- else $("g3prog").querySelector(".pt").style.visibility="hidden";
- // weather card (uses the page's live forecast when available)
- const wx=$("g3wx");let W=null;try{if(typeof WX!=="undefined"){const K=Object.keys(WX).map(Number).sort((a,b)=>a-b);if(K.length){const f=WX[day]&&mon===10?day:(T<0?K[0]:K[K.length-1]);W={...WX[f],f}}}}catch(e){}
- let sr=null;try{if(typeof sunFor==="function")sr=sunFor(day)}catch(e){}
- if(W){wx.innerHTML=`<div class="k">હવામાન</div><div class="r">${(typeof ICON!=="undefined"&&ICON[W.i])||"☀️"}<span class="v">${gd(W.hi)}°</span></div><div class="s">${W.gu}</div><div class="ss">ઓછું ${gd(W.lo)}°<br>વરસાદ ${gd(W.r)}%${sr?`<br>🌅 ${t12(sr[0])}<br>🌇 ${t12(sr[1])}`:""}</div>`}else if(sr){wx.innerHTML=`<div class="k">આજે</div><div class="ss">🌅 ${t12(sr[0])}<br>🌇 ${t12(sr[1])}</div>`}else wx.innerHTML="";
-}
+ if(tdi.length){const dn=tdi.filter(x=>x.E<=T).length;$("frpt").textContent=`આજે ${gd(tdi.length)}માંથી ${gd(dn)} કાર્યક્રમ પૂર્ણ`;$("frpb").style.width=(dn/tdi.length*100)+"%"}
+ else{$("frpt").textContent=T<0?"શિબિર ૧૪ નવેમ્બરથી":"શિબિર પૂર્ણ";$("frpb").style.width=T<0?"0%":"100%"}
+ $("frday").textContent=WDS[d.getUTCDay()];
+ if(td.length){const f=td[0].S,la=Math.max(...td.map(x=>x.E)),pc=Math.max(0,Math.min(100,(T-f)/(la-f)*100));
+  $("frd1").textContent=t12(td[0].s);$("frd2").textContent=t12(Math.max(...td.map(x=>x.e)));
+  $("frdm").textContent=T<f?"દિવસ શરૂ થવામાં "+dur(f-T):T<la?"દિવસ પૂરો થવામાં "+dur(la-T):"આજનો દિવસ પૂર્ણ";$("frkn").style.left=pc+"%"}
+ else{$("frd1").textContent="";$("frd2").textContent="";$("frdm").textContent="";$("frkn").style.left="0%"}
+ fitText($("frdm"),355);
+ let W=null,sr=null;try{if(typeof WX!=="undefined"){const K=Object.keys(WX).map(Number).sort((a,b)=>a-b);if(K.length){const f=WX[day]&&mon===10?day:(T<0?K[0]:K[K.length-1]);W=WX[f]}}}catch(e){}
+ try{if(typeof sunFor==="function")sr=sunFor(day)}catch(e){}
+ $("frwv").textContent=W?`${gd(W.hi)}° / ${gd(W.lo)}°, વરસાદ ${gd(W.r)}%`:"ભુજ";$("frws").textContent=W?W.gu:"હવામાન મેળવાય છે…";fitText($("frwv"),420);
+ $("frsr").textContent=sr?"સૂર્યોદય "+t12(sr[0]):"";$("frss").textContent=sr?"સૂર્યાસ્ત "+t12(sr[1]):""}
 window.g3draw=draw;
-document.addEventListener("DOMContentLoaded",()=>{const $=id=>document.getElementById(id);
- ["g3now","g3next"].forEach(id=>$(id).classList.add("g3card"));
- const bt=$("g3btns");["qbar","bell"].forEach(id=>{const b=$(id);if(b)bt.appendChild(b)});
- const fb=$("fab");if(fb)$("g3prog").appendChild(fb);
- $("g3next").onclick=()=>{const f=$("fab");if(f)f.click()};
+document.addEventListener("DOMContentLoaded",()=>{size();addEventListener("resize",()=>{size();draw()});
+ const click=id=>()=>{const b=$(id);if(b)b.click()};$("hq").onclick=click("qbar");$("hb").onclick=click("bell");$("hn").onclick=click("fab");$("hd").onclick=click("fab");
  draw();setInterval(draw,20000)});
 })();
 </script>
