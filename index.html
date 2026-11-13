@@ -62,6 +62,7 @@ main{max-width:980px;margin:0 auto;padding:0 14px}
 .hero::before{width:300px;height:300px;right:-90px;top:-110px}
 .hero::after{width:200px;height:200px;left:-70px;bottom:-80px}
 .hero .mandala{position:absolute;inset:0;opacity:.10;background:repeating-conic-gradient(from 0deg,#fff 0 6deg,transparent 6deg 18deg);mask:radial-gradient(circle at 50% 120%,#000 0,transparent 70%);-webkit-mask:radial-gradient(circle at 50% 120%,#000 0,transparent 70%)}
+.kbtn{display:block;margin:10px 0 4px;padding:13px 16px;border-radius:16px;background:linear-gradient(135deg,#f59f00,#e8590c);color:#fff;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 6px 16px rgba(232,89,12,.3)}
 .live{margin:16px 0 4px;border-radius:22px;padding:16px 18px;color:#fff;background:linear-gradient(135deg,#1e2265,#5f3dc4 60%,#c2255c);box-shadow:0 10px 26px rgba(30,34,101,.35);position:relative;overflow:hidden}
 .live::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.08)}
 .lv-top{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;letter-spacing:.5px;color:#ffd6e0}
@@ -72,6 +73,7 @@ main{max-width:980px;margin:0 auto;padding:0 14px}
 .lv-big{font-size:21px;font-weight:800;margin-top:8px;line-height:1.35;position:relative}
 .lv-sub{font-size:13px;opacity:.85;margin-top:3px}
 .lv-next{margin-top:10px;padding-top:9px;border-top:1px dashed rgba(255,255,255,.3);font-size:13.5px}
+.psec{padding:8px 14px;background:#fff3e3;color:var(--maroon);font-weight:800;font-size:13.5px;text-align:center;border-bottom:1px solid #f7ece0}
 .pr{display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid #f7ece0}
 .pr:last-child{border-bottom:none}
 .pr .pt{width:58px;font-weight:800;color:var(--maroon);font-size:14px;text-align:center;line-height:1.2}
@@ -292,6 +294,7 @@ textarea.search{min-height:110px;resize:vertical;line-height:1.6}
     </div>
 
     <div class="live" id="live"></div>
+    <a class="kbtn" href="karyakram.html">🕉️ લાઇવ કાર્યક્રમ ખોલો (દર્શન, હવામાન) ›</a>
 
     <div class="sec-h"><h3 id="progTitle">📅 આજનો કાર્યક્રમ</h3></div>
     <div class="days" id="hdays"></div>
@@ -475,7 +478,7 @@ const short = n => n.replace(/^સ્વામી\s+/, '');
 const inRoom = r => SAINTS.filter(s => state.rooms[s.id] == r);
 /* કિચન ઇન્ચાર્જ: કોઈ પણ સેવામાં હોય તો સૌથી ઉપર */
 const INCHARGE = ['m5_1','m8_1'];
-const isInch = s => INCHARGE.includes(s.id);
+const isInch = s => false; /* ઇન્ચાર્જનું લખાણ/નિશાની બંધ – ફક્ત યાદીમાં ઉપર રાખવા */
 const inchRank = s => { const i = INCHARGE.indexOf(s.id); return i<0 ? 99 : i; };
 const xname = s => isInch(s) ? s.name+' ⭐ (કિચન ઇન્ચાર્જ)' : s.name;
 const sevaMembers = id => (state.sevas[id] || []).filter(x => SMAP[x]).map(x => SMAP[x]).sort((a,b)=>inchRank(a)-inchRank(b) || a.sr-b.sr);
@@ -532,29 +535,38 @@ function renderStats(){
 }
 function renderHome(){
   // countdown
-  const t = todayStr(), first = state.menu[0].d, last = state.menu[state.menu.length-1].d;
+  const t = istDateStr(), first = state.menu[0].d, last = state.menu[state.menu.length-1].d;
   const diff = Math.round((pd(first) - pd(t))/864e5);
   let cd = '';
   if(diff > 0) cd = `⏳ શિબિર શરૂ થવામાં ${gu(diff)} દિવસ બાકી`;
   else if(t <= last) cd = `🌟 આજે શિબિરનો દિવસ ${gu(1-diff)} – ${dayName(t)}`;
   else cd = '🙏 શિબિર સંપન્ન – જય સ્વામિનારાયણ';
   // live + program + meals
-  if(!homeDay || !state.menu.find(x=>x.d===homeDay)) homeDay = (state.menu.find(x=>x.d===t)||state.menu.find(x=>x.d>t)||state.menu[0]).d;
-  document.getElementById('hdays').innerHTML = state.menu.map((x,i)=>{ const dt=pd(x.d);
-    return `<button class="day ${x.d===homeDay?'on':''}" onclick="homeDay='${x.d}';renderHome()">${x.d===t?'<span class="today">આજે</span>':''}<div class="dn">${GU_DAYS[dt.getDay()].replace('વાર','')}</div><div class="dd">${gu(dt.getDate())}</div><div class="dm">દિવસ ${gu(i+1)}</div></button>`; }).join('');
+  const ALLDAYS = [...new Set([...Object.keys(PROGRAM), ...state.menu.map(x=>x.d)])].sort();
+  if(!homeDay || !ALLDAYS.includes(homeDay)) homeDay = ALLDAYS.find(x=>x===t) || ALLDAYS.find(x=>x>t) || ALLDAYS[0];
+  document.getElementById('hdays').innerHTML = ALLDAYS.map(x=>{ const dt=pd(x); const n=Math.round((dt-pd(FIRST))/864e5)+1;
+    return `<button class="day ${x===homeDay?'on':''}" onclick="homeDay='${x}';renderHome()">${x===t?'<span class="today">આજે</span>':''}<div class="dn">${GU_DAYS[dt.getDay()].replace('વાર','')}</div><div class="dd">${gu(dt.getDate())}</div><div class="dm">${n<1?'પૂર્વ દિવસ':(x>LAST?'વિદાય પછી':'દિવસ '+gu(n))}</div></button>`; }).join('');
   const isToday = homeDay===t;
   document.getElementById('progTitle').textContent = (isToday?'📅 આજનો કાર્યક્રમ':'📅 કાર્યક્રમ – '+dayName(homeDay)+', '+dateGu(homeDay));
-  const prog = PROGRAM[homeDay]||[]; const nm = nowMin();
-  document.getElementById('prog').innerHTML = prog.length ? prog.map(p=>{ const st=isToday&&nm>=toMin(p.s)&&nm<toMin(p.e)?'now':(isToday&&nm>=toMin(p.e)?'done':'');
-      return `<div class="pr ${st}"><div class="pt">${esc(p.s)}<small>${esc(p.e)}</small></div><div class="pa"><b>${esc(p.a)}</b>${p.l?`<small>📍 ${esc(p.l)}</small>`:''}</div>${st==='now'?'<span class="livebadge">● હમણાં</span>':''}</div>`; }).join('')
-    : `<div class="empty" style="padding:18px;text-align:center">🕐 દૈનિક કાર્યક્રમ ટૂંક સમયમાં અહીં ઉમેરાશે.<br><small>કાર્યક્રમ આવ્યા પછી "હમણાં શું ચાલે છે" ઉપર લાઇવ દેખાશે.</small></div>`;
+  const prog = PROGRAM[homeDay]||[]; const nm = nowMin(); const curI = isToday ? curIndex(prog,nm) : -1;
+  const SEC = {am:'', pm:'બપોર પછી', eve:'સાંજે'}; let lastG = 'am';
+  document.getElementById('prog').innerHTML = prog.length ? prog.map((p,i)=>{ const st = i===curI ? 'now' : (isToday && nm>=toMin(p.e) ? 'done' : '');
+      let head=''; if(p.g!==lastG){ lastG=p.g; if(SEC[p.g]) head=`<div class="psec">${SEC[p.g]}</div>`; }
+      return head+`<div class="pr ${st}"><div class="pt">${t12(p.s)}<small>${p.e==='23:59'?'':t12(p.e)}</small></div><div class="pa"><b>${esc(p.a)}</b>${p.v?`<small>🎤 ${esc(p.v)}</small>`:''}</div>${st==='now'?'<span class="livebadge">● હમણાં</span>':''}</div>`; }).join('')
+    : `<div class="empty" style="padding:18px;text-align:center">🕐 આ દિવસનો કાર્યક્રમ નથી.</div>`;
+  const md = state.menu.find(x=>x.d===homeDay);
+  document.getElementById('homeMenuTitle').parentElement.style.display = md ? '' : 'none';
   document.getElementById('homeMenuTitle').textContent = isToday ? '🍛 આજનું ભોજન' : '🍛 ભોજન – '+dateGu(homeDay);
-  document.getElementById('homeMeals').innerHTML = mealCards(state.menu.find(x=>x.d===homeDay));
+  document.getElementById('homeMeals').innerHTML = mealCards(md);
   renderLive();
 }
 let homeDay = null;
-const PROGRAM = {}; /* દૈનિક કાર્યક્રમ: {'2026-11-14':[{s:'05:00',e:'06:00',a:'પ્રાતઃ જાગરણ',l:'સ્થળ'}]} */
+const FIRST='2026-11-14', LAST='2026-11-18';
+/* દૈનિક કાર્યક્રમ (PDF માંથી): s=શરૂ, e=પૂરું (૨૪ કલાક), a=વિષય, v=વક્તા, g=સવાર/બપોર/સાંજ */
+const PROGRAM = {"2026-11-13":[{"s":"16:00","e":"18:00","a":"શિબિર સ્થળે આગમન","v":"","g":"pm"},{"s":"18:30","e":"18:50","a":"નિત્ય નિયમ","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"18:50","e":"19:05","a":"સમૂહગાન (મહામંત્ર ચોપાઈ)","v":"સમૂહગાન","g":"pm"},{"s":"19:05","e":"19:20","a":"સૂચના","v":"","g":"pm"},{"s":"19:30","e":"20:30","a":"ભોજનપ્રસાદ","v":"","g":"pm"},{"s":"20:15","e":"20:35","a":"ચેષ્ટા","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"20:35","e":"21:45","a":"ગ્રુપચર્ચા + સંતસમાગમ","v":"હરિસ્વરૂપ સ્વામી","g":"pm"},{"s":"22:00","e":"23:59","a":"યોગનિદ્રા","v":"","g":"pm"}],"2026-11-14":[{"s":"05:00","e":"05:30","a":"ઉત્થાપન","v":"","g":"am"},{"s":"05:30","e":"06:15","a":"પ્રાતઃપૂજા","v":"કુંજવિહારી સ્વામી","g":"am"},{"s":"06:15","e":"06:50","a":"આરતી - કથા (વચનામૃત ગ.પ્ર.૪૮)","v":"વાત્સલ્યમુનિ સ્વામી","g":"am"},{"s":"07:00","e":"08:00","a":"અલ્પ આહાર","v":"","g":"am"},{"s":"08:00","e":"08:20","a":"આગમન તૈયારી","v":"","g":"am"},{"s":"08:20","e":"09:30","a":"આગમન, દીપપ્રાગટ્ય, આશીર્વાદ","v":"મહંત સ્વામી","g":"am"},{"s":"09:30","e":"10:00","a":"મહામંત્ર અનુષ્ઠાન","v":"","g":"am"},{"s":"10:10","e":"10:40","a":"અલ્પ વિરામ","v":"","g":"am"},{"s":"10:50","e":"11:50","a":"વ્યાખ્યાનમાળા (પાહિમામ્)","v":"આનંદસ્વરૂપ સ્વામી","g":"am"},{"s":"12:00","e":"15:00","a":"માનસી, ભોજન પ્રસાદ, વિશ્રામ","v":"","g":"am"},{"s":"15:00","e":"15:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"pm"},{"s":"15:30","e":"16:00","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"16:15","e":"17:15","a":"વ્યાખ્યાનમાળા (The Ultimate Gift)","v":"મોરલીમનોહર સ્વામી","g":"pm"},{"s":"17:30","e":"18:00","a":"(આશીર્વાદ)","v":"એક સંત","g":"pm"},{"s":"18:00","e":"18:20","a":"અલ્પ વિરામ","v":"","g":"pm"},{"s":"18:30","e":"18:50","a":"નિત્ય નિયમ","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"18:50","e":"19:05","a":"સમૂહગાન (મહામંત્ર ચોપાઈ)","v":"સમૂહગાન","g":"eve"},{"s":"19:05","e":"19:20","a":"આશીર્વાદ","v":"એક સંત","g":"eve"},{"s":"19:30","e":"20:30","a":"ભોજનપ્રસાદ","v":"","g":"eve"},{"s":"20:15","e":"20:35","a":"ચેષ્ટા","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"20:35","e":"21:45","a":"ગ્રુપચર્ચા + સંતસમાગમ","v":"હરિસ્વરૂપ સ્વામી","g":"eve"},{"s":"22:00","e":"23:59","a":"યોગ નિદ્રા","v":"","g":"eve"}],"2026-11-15":[{"s":"05:00","e":"05:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"am"},{"s":"05:30","e":"06:15","a":"પ્રાતઃપૂજા","v":"કુંજવિહારી સ્વામી","g":"am"},{"s":"06:15","e":"06:50","a":"આરતી - કથા (વચનામૃત ગ.પ્ર.૭૦ પ્ર.૧)","v":"હરિપ્રિય સ્વામી","g":"am"},{"s":"07:00","e":"08:00","a":"અલ્પ આહાર","v":"સંગીતજ્ઞ સંતો","g":"am"},{"s":"08:15","e":"08:30","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"","g":"am"},{"s":"08:30","e":"09:00","a":"મહામંત્ર અનુષ્ઠાન","v":"","g":"am"},{"s":"09:10","e":"10:10","a":"વ્યાખ્યાનમાળા (મારું મન કોના હાથમાં)","v":"ગોલોક સ્વામી","g":"am"},{"s":"10:20","e":"10:50","a":"આશીર્વાદ","v":"બે સંતો","g":"am"},{"s":"10:50","e":"11:20","a":"અલ્પ વિરામ","v":"","g":"am"},{"s":"11:30","e":"12:00","a":"(મનન)","v":"હરિસ્વરૂપ સ્વામી","g":"am"},{"s":"12:00","e":"15:00","a":"માનસી, ભોજન પ્રસાદ, વિશ્રામ","v":"","g":"am"},{"s":"15:00","e":"15:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"pm"},{"s":"15:30","e":"16:00","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"16:15","e":"17:15","a":"વ્યાખ્યાનમાળા (મહામંત્ર મહિમા)","v":"શ્યામકૃષ્ણદાસજી સ્વામી","g":"pm"},{"s":"17:30","e":"18:00","a":"(આશીર્વાદ)","v":"એક સંત","g":"pm"},{"s":"18:00","e":"18:20","a":"અલ્પ વિરામ","v":"","g":"pm"},{"s":"18:30","e":"18:50","a":"નિત્ય નિયમ","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"18:50","e":"19:05","a":"સમૂહગાન (મહામંત્ર ચોપાઈ)","v":"સમૂહગાન","g":"eve"},{"s":"19:05","e":"19:20","a":"આશીર્વાદ","v":"એક સંત","g":"eve"},{"s":"19:30","e":"20:30","a":"ભોજનપ્રસાદ","v":"","g":"eve"},{"s":"20:15","e":"20:35","a":"ચેષ્ટા","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"20:35","e":"21:45","a":"ગ્રુપચર્ચા + સંતસમાગમ","v":"હરિસ્વરૂપ સ્વામી","g":"eve"},{"s":"22:00","e":"23:59","a":"યોગ નિદ્રા","v":"","g":"eve"}],"2026-11-16":[{"s":"05:00","e":"05:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"am"},{"s":"05:30","e":"06:15","a":"પ્રાતઃપૂજા","v":"કુંજવિહારી સ્વામી","g":"am"},{"s":"06:15","e":"06:50","a":"આરતી - કથા (વચનામૃત ગ.મ.૧૨ પ્ર.૧)","v":"મુકુંદ સ્વામી","g":"am"},{"s":"07:00","e":"08:00","a":"અલ્પ આહાર","v":"","g":"am"},{"s":"08:15","e":"08:30","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"","g":"am"},{"s":"08:30","e":"09:00","a":"મહામંત્ર અનુષ્ઠાન","v":"સંગીતજ્ઞ સંતો","g":"am"},{"s":"09:10","e":"10:10","a":"પીપીટી / વ્યાખ્યાનમાળા (મારું સાચું સરનામું શું)","v":"ઘનશ્યામસ્વરૂપદાસજી","g":"am"},{"s":"10:20","e":"10:50","a":"આશીર્વાદ","v":"એક સંત","g":"am"},{"s":"10:50","e":"11:20","a":"અલ્પ વિરામ","v":"","g":"am"},{"s":"11:30","e":"12:00","a":"(મનન)","v":"હરિસ્વરૂપ સ્વામી","g":"am"},{"s":"12:00","e":"15:00","a":"માનસી, ભોજન પ્રસાદ, વિશ્રામ","v":"","g":"am"},{"s":"15:00","e":"15:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"pm"},{"s":"15:30","e":"16:00","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"16:15","e":"17:15","a":"વ્યાખ્યાનમાળા (મંત્રજાપ)","v":"સંતસ્વરૂપદાસજી","g":"pm"},{"s":"17:30","e":"18:00","a":"(આશીર્વાદ)","v":"એક સંત","g":"pm"},{"s":"18:00","e":"18:20","a":"અલ્પ વિરામ","v":"","g":"pm"},{"s":"18:30","e":"18:50","a":"નિત્ય નિયમ","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"18:50","e":"19:05","a":"સમૂહગાન (મહામંત્ર ચોપાઈ)","v":"સમૂહગાન","g":"eve"},{"s":"19:05","e":"19:20","a":"આશીર્વાદ","v":"એક સંત","g":"eve"},{"s":"19:30","e":"20:30","a":"ભોજનપ્રસાદ","v":"","g":"eve"},{"s":"20:15","e":"20:35","a":"ચેષ્ટા","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"20:35","e":"21:45","a":"ગ્રુપચર્ચા + સંતસમાગમ","v":"હરિસ્વરૂપ સ્વામી","g":"eve"},{"s":"22:00","e":"23:59","a":"યોગ નિદ્રા","v":"","g":"eve"}],"2026-11-17":[{"s":"05:00","e":"05:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"am"},{"s":"05:30","e":"06:15","a":"પ્રાતઃપૂજા","v":"કુંજવિહારી સ્વામી","g":"am"},{"s":"06:15","e":"06:50","a":"આરતી - કથા (વચનામૃત ગ.પ્ર.૮ પ્ર.૧)","v":"રામદાસ સ્વામી","g":"am"},{"s":"07:00","e":"08:00","a":"અલ્પ આહાર","v":"","g":"am"},{"s":"08:00","e":"08:30","a":"ગ્રુપ ફોટો","v":"","g":"am"},{"s":"08:30","e":"08:50","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"am"},{"s":"09:00","e":"10:00","a":"વ્યાખ્યાનમાળા (મારું યુવક મંડળ)","v":"ઘનશ્યામનંદન સ્વામી","g":"am"},{"s":"10:10","e":"10:25","a":"આશીર્વાદ","v":"એક સંત","g":"am"},{"s":"10:30","e":"11:00","a":"અલ્પ વિરામ","v":"","g":"am"},{"s":"11:10","e":"12:00","a":"(બહેનોનું સત્ર + ગ્રુપ ફોટો) + (મનન)","v":"હરિસ્વરૂપ સ્વામી","g":"am"},{"s":"12:00","e":"15:00","a":"માનસી, ભોજન પ્રસાદ, વિશ્રામ","v":"","g":"am"},{"s":"15:00","e":"15:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"pm"},{"s":"15:30","e":"16:00","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"pm"},{"s":"16:15","e":"17:15","a":"વ્યાખ્યાનમાળા (અનુભવી આનંદ)","v":"રાઘવમુનિ સ્વામી","g":"pm"},{"s":"17:30","e":"18:00","a":"(આશીર્વાદ)","v":"એક સંત","g":"pm"},{"s":"18:00","e":"18:20","a":"અલ્પ વિરામ","v":"","g":"pm"},{"s":"18:30","e":"18:50","a":"નિત્ય નિયમ","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"18:50","e":"19:05","a":"સમૂહગાન (મહામંત્ર ચોપાઈ)","v":"સમૂહગાન","g":"eve"},{"s":"19:05","e":"19:20","a":"આશીર્વાદ","v":"એક સંત","g":"eve"},{"s":"19:30","e":"20:30","a":"ભોજનપ્રસાદ","v":"","g":"eve"},{"s":"20:15","e":"20:35","a":"ચેષ્ટા","v":"સંગીતજ્ઞ સંતો","g":"eve"},{"s":"20:35","e":"21:45","a":"ગ્રુપચર્ચા + સંતસમાગમ","v":"હરિસ્વરૂપ સ્વામી","g":"eve"},{"s":"22:00","e":"23:59","a":"યોગ નિદ્રા","v":"","g":"eve"}],"2026-11-18":[{"s":"05:00","e":"05:30","a":"ઉત્થાપન","v":"ઉતારાના સ્વયંસેવકો","g":"am"},{"s":"05:30","e":"06:15","a":"પ્રાતઃપૂજા","v":"કુંજવિહારી સ્વામી","g":"am"},{"s":"06:15","e":"06:50","a":"આરતી - કથા (વચનામૃત ગ.મ.૪૧)","v":"યોગેશ્વર સ્વામી","g":"am"},{"s":"07:00","e":"08:00","a":"અલ્પ આહાર","v":"","g":"am"},{"s":"08:00","e":"08:20","a":"કીર્તનભક્તિ (સ્વામિનારાયણ આજ પ્રગટ)","v":"સંગીતજ્ઞ સંતો","g":"am"},{"s":"08:30","e":"09:45","a":"શિબિર મૂલ્યાંકન","v":"હરિસ્વરૂપ સ્વામી","g":"am"},{"s":"09:45","e":"10:00","a":"અંતિમ જાહેરાત","v":"","g":"am"},{"s":"10:00","e":"11:00","a":"આભારવિધિ, નિયમ - ભલામણ.","v":"","g":"am"},{"s":"11:00","e":"11:30","a":"સ્નેહમિલન + અલ્પ વિરામ + રાસોત્સવ તૈયારી","v":"","g":"am"},{"s":"11:30","e":"12:30","a":"રાસોત્સવ","v":"સંગીતજ્ઞ સંતો","g":"am"},{"s":"12:00","e":"15:00","a":"માનસી, ભોજન પ્રસાદ, વિદાય","v":"","g":"am"}]};
 const toMin = h => { const [a,b]=h.split(':').map(Number); return a*60+b; };
+const t12 = h => { let [a,b]=h.split(':').map(Number); a=((a+11)%12)+1; return gu(String(a).padStart(2,'0')+':'+String(b).padStart(2,'0')); };
+function curIndex(prog,nm){ let ci=-1; prog.forEach((p,i)=>{ if(nm>=toMin(p.s) && nm<toMin(p.e)) ci=i; }); return ci; }
 function nowIST(){ return new Date(Date.now() + (330 + new Date().getTimezoneOffset())*60000); }
 function nowMin(){ const d=nowIST(); return d.getHours()*60+d.getMinutes(); }
 function istDateStr(){ const d=nowIST(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
@@ -562,16 +574,18 @@ function renderLive(){
   const d=nowIST(), t=istDateStr(), nm=d.getHours()*60+d.getMinutes();
   const hh=d.getHours(), h12=((hh+11)%12)+1, ap = hh<12?'સવારે':(hh<16?'બપોરે':(hh<20?'સાંજે':'રાત્રે'));
   const clock = gu(h12+':'+String(d.getMinutes()).padStart(2,'0'));
-  const first=state.menu[0].d, last='2026-11-18';
-  const prog = PROGRAM[t]||[]; const cur = prog.find(p=>nm>=toMin(p.s)&&nm<toMin(p.e)); const nxt = prog.find(p=>toMin(p.s)>nm);
+  const prog = PROGRAM[t]||[]; const ci = curIndex(prog,nm); const cur = ci>=0 ? prog[ci] : null; const nxt = prog.find(p=>toMin(p.s)>nm);
+  const dayLab = t<FIRST ? 'પૂર્વ દિવસ' : 'દિવસ '+gu(Math.round((pd(t)-pd(FIRST))/864e5)+1);
   let body='';
-  if(t<first){ const dd=Math.round((pd(first)-pd(t))/864e5); body=`<div class="lv-big">⏳ શિબિર શરૂ થવામાં <b>${gu(dd)}</b> દિવસ બાકી</div><div class="lv-sub">પ્રથમ દિવસ: ${dayName(first)}, ${dateGu(first)}</div>`; }
-  else if(t>last){ body=`<div class="lv-big">🙏 શિબિર સંપન્ન</div><div class="lv-sub">જય સ્વામિનારાયણ</div>`; }
-  else if(cur||nxt){ body = (cur?`<div class="lv-lab">● હમણાં ચાલે છે</div><div class="lv-big">${esc(cur.a)}</div><div class="lv-sub">${esc(cur.s)} થી ${esc(cur.e)}${cur.l?' • 📍 '+esc(cur.l):''}</div>`:'')+(nxt?`<div class="lv-next">⏭ હવે પછી: <b>${esc(nxt.a)}</b> • ${esc(nxt.s)}</div>`:''); }
-  else { body=`<div class="lv-big">🌟 આજે શિબિરનો દિવસ ${gu(Math.round((pd(t)-pd(first))/864e5)+1)}</div><div class="lv-sub">દૈનિક કાર્યક્રમ ઉમેરાયા પછી અહીં લાઇવ દેખાશે</div>`; }
+  if(cur||nxt){ body = `<div class="lv-sub" style="margin-top:6px">${dayLab} • ${dayName(t)}, ${dateGu(t)}</div>`+
+      (cur?`<div class="lv-lab">● હમણાં ચાલે છે</div><div class="lv-big">${esc(cur.a)}</div><div class="lv-sub">${t12(cur.s)}${cur.e==='23:59'?'':' થી '+t12(cur.e)}${cur.v?' • 🎤 '+esc(cur.v):''}</div>`:'<div class="lv-big">🙏 થોડી વારમાં કાર્યક્રમ શરૂ થશે</div>')+
+      (nxt?`<div class="lv-next">⏭ હવે પછી: <b>${esc(nxt.a)}</b> • ${t12(nxt.s)}${nxt.v?' • '+esc(nxt.v):''}</div>`:''); }
+  else if(t<FIRST){ const dd=Math.round((pd(FIRST)-pd(t))/864e5); body=`<div class="lv-big">⏳ શિબિર શરૂ થવામાં <b>${gu(dd)}</b> દિવસ બાકી</div><div class="lv-sub">પ્રથમ દિવસ: ${dayName(FIRST)}, ${dateGu(FIRST)}</div>`; }
+  else if(t>LAST){ body=`<div class="lv-big">🙏 શિબિર સંપન્ન</div><div class="lv-sub">જય સ્વામિનારાયણ</div>`; }
+  else { body=`<div class="lv-big">🌟 આજે શિબિરનો ${dayLab}</div><div class="lv-sub">આજનો કાર્યક્રમ પૂરો થયો • જય સ્વામિનારાયણ</div>`; }
   document.getElementById('live').innerHTML = `<div class="lv-top"><span class="lv-dot"></span> લાઇવ <span class="lv-clock">${ap} ${clock}</span></div>${body}`;
 }
-setInterval(()=>{ if(document.getElementById('p-home').classList.contains('on')) renderLive(); }, 30000);
+setInterval(()=>{ if(document.getElementById('p-home').classList.contains('on')) renderHome(); }, 30000);
 function renderRooms(){
   let h = '';
   for(let r=1; r<=ROOMS; r++){
