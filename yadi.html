@@ -276,6 +276,29 @@ textarea.search{min-height:110px;resize:vertical;line-height:1.6}
 @keyframes h2p{50%{box-shadow:0 0 0 7px rgba(224,49,49,.05)}}
 .topbar{background:linear-gradient(135deg,#273c5f,#3d5689)!important}
 body{background:linear-gradient(180deg,#e9edf7,#dfe5f3)!important}
+
+/* ===== dark glass theme (like live page) ===== */
+:root{--card:rgba(255,255,255,.12);--ink:#ffffff;--muted:rgba(235,240,255,.78);--line:rgba(255,255,255,.22);--maroon:#FFE7A3;--cream:#2c3a62;--shadow:0 10px 26px rgba(5,10,30,.35)}
+html,body{background:radial-gradient(130% 80% at 50% 10%,#6f82b6 0%,#4a5a8c 45%,#2c365c 100%) fixed!important;color:#fff!important}
+main,.panel{background:transparent!important}
+.card,.item,.meal,.stat,.acc,.box,.tbl-wrap,.pr,.mini,.srv,.room-no{color:#fff}
+.card,.meal,.acc,.box,.tbl-wrap,.mini{background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05))!important;border:1.5px solid rgba(255,255,255,.32)!important;box-shadow:0 8px 22px rgba(5,10,30,.28),inset 0 1px 0 rgba(255,255,255,.35)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.card-h,.meal-h,.acc-h,.sheet-h{background:rgba(255,255,255,.08)!important;color:#FFE7A3!important;border-color:rgba(255,255,255,.2)!important}
+.pr{border-bottom-color:rgba(255,255,255,.15)!important}
+.day{background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06))!important;border-color:rgba(255,255,255,.35)!important;color:#fff!important}
+.day.on,.day[aria-selected="true"],.day.sel,.day.active{background:linear-gradient(180deg,#FFE08A,#F5B700)!important;color:#2a1a00!important;border-color:#fff6d0!important}
+.chip,.seg button,.filter button,.opt{background:rgba(255,255,255,.14)!important;color:#fff!important;border-color:rgba(255,255,255,.35)!important}
+.chip.on,.seg button.on,.filter button.on,.opt.on{background:linear-gradient(180deg,#FFE08A,#F5B700)!important;color:#2a1a00!important}
+input,select,textarea{background:rgba(255,255,255,.14)!important;color:#fff!important;border-color:rgba(255,255,255,.35)!important}
+input::placeholder{color:rgba(255,255,255,.65)!important}
+table{color:#fff}th{background:rgba(255,255,255,.12)!important;color:#FFE7A3!important}td{border-color:rgba(255,255,255,.15)!important}
+.tag{background:rgba(255,255,255,.16)!important;color:#fff!important}
+.sheet,.overlay .sheet{background:linear-gradient(180deg,#465a8f,#2c365c)!important;color:#fff!important}
+.toast{background:#1d2748!important}
+.bnav,.tabbar{background:rgba(30,40,75,.85)!important;backdrop-filter:blur(12px)}
+.bnav *{color:#fff}
+.pr.now{background:linear-gradient(90deg,rgba(255,224,138,.4),rgba(245,183,0,.12))!important;box-shadow:inset 4px 0 0 #F5B700}
+.pr.done{opacity:.55}
 </style>
 </head>
 <body>
