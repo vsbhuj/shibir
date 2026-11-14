@@ -541,12 +541,12 @@ body[data-g="kids"]{--bg:#F5C4C4}body[data-g="youth"]{--bg:#FBE39C}body[data-g="
  <div class="ft f-xs" style="left:32.944%;top:61.722%" id="frxs"></div>
  <div class="ft f-pt" style="left:12.540%;top:66.746%" id="frpt"></div>
  <div class="f-ptk" style="left:12.752%;top:69.976%"><i id="frpb"></i></div>
- <div class="ft f-day" style="left:79.915%;top:68.182%" id="frday"></div>
- <a class="snt" href="yadi.html" style="left:62.487%;top:7.775%;width:13.6%;height:3.5%">👥 સંતો</a>
+ <button class="yb" style="left:77.577%;top:67.464%;width:5%;height:4.6%" id="frdayb"><span id="frday"></span></button>
+ <i class="ydv" style="left:82.997%;top:67.943%;width:.3%;height:3.4%"></i>
+ <a class="yb" style="left:83.316%;top:67.464%;width:7.6%;height:4.6%" href="yadi.html"><span>સંતો</span></a>
  <button class="f-hit" style="left:78.108%;top:7.476%;width:6.6%;height:3.8%" id="hq" aria-label="શોધો"></button>
  <button class="f-hit" style="left:86.079%;top:7.656%;width:6.6%;height:3.8%" id="hb" aria-label="જાણ"></button>
  <button class="f-hit" style="left:11.158%;top:56.220%;width:82%;height:8.7%" id="hn" aria-label="આખો દિવસ"></button>
- <button class="f-hit" style="left:66.419%;top:66.986%;width:25%;height:5.2%" id="hd" aria-label="આખો દિવસ"></button>
 </div></div>
 <style>
 .sky,#now,#nowlab,#next,#wx,#dprog,#note,#prevl,.fab,#qbar,#bell,.top .ctl{display:none!important}
@@ -613,6 +613,10 @@ body{background:linear-gradient(180deg,#273c5f 0%,#3a5180 50%,#415e8d 100%)!impo
 #dar .dhint button{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.5);color:#fff}
 
 .snt{position:absolute;display:flex;align-items:center;justify-content:center;gap:.2em;font-size:24em;font-weight:700;color:#2a1a00;text-decoration:none;border-radius:1.4em;background:linear-gradient(180deg,#FFE08A,#F5B700);border:.08em solid #fff6d0;box-shadow:0 .3em .8em rgba(245,183,0,.45);white-space:nowrap;z-index:3}
+
+.ybpatch{position:absolute;background:url(k/frame.webp) no-repeat;background-size:941em 1672em;background-position:-612em -1040em;border-radius:2em;filter:blur(.15em)}
+.yb{position:absolute;display:flex;align-items:center;justify-content:center;gap:.15em;padding:0;border:0;background:transparent;color:#2a1a00;font-family:inherit;font-size:22em;font-weight:700;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.ydv{position:absolute;background:rgba(90,60,0,.45);transform:skewX(-14deg);border-radius:1em}
 </style>
 <script>
 (function(){
@@ -659,7 +663,7 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  $("frsr").textContent=sr?"સૂર્યોદય "+t12(sr[0]):"";$("frss").textContent=sr?"સૂર્યાસ્ત "+t12(sr[1]):""}
 window.g3draw=draw;
 document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild($("fr"));size(true);addEventListener("resize",()=>{size(false)});addEventListener("orientationchange",()=>setTimeout(()=>size(true),300));
- const click=id=>()=>{const b=$(id);if(b)b.click()};$("hq").onclick=click("qbar");$("hb").onclick=click("bell");$("hn").onclick=click("fab");$("hd").onclick=click("fab");
+ const click=id=>()=>{const b=$(id);if(b)b.click()};$("hq").onclick=click("qbar");$("hb").onclick=click("bell");$("hn").onclick=click("fab");$("frdayb").onclick=click("fab");
  if(typeof showDar==="function"){const o=showDar;window.showDar=showDar=function(c){o(c);const a=document.querySelector("#darin .dart");if(a)a.outerHTML=`<div class="gimg"><img src="${img(c.a)}" alt=""></div>`}}
  draw();setInterval(draw,20000)});
 })();
