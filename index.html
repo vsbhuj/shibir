@@ -540,7 +540,6 @@ body[data-g="kids"]{--bg:#F5C4C4}body[data-g="youth"]{--bg:#FBE39C}body[data-g="
  <div class="ft f-xv" style="left:32.944%;top:58.911%" id="frxv"></div>
  <div class="ft f-xs" style="left:32.944%;top:61.722%" id="frxs"></div>
  <div class="ft f-pt" style="left:12.540%;top:66.746%" id="frpt"></div>
- <div class="barpatch" style="left:30.5%;top:68.4%;width:35%;height:3.4%"></div>
  <i id="frpb" style="display:none"></i>
  <div class="ft f-day" style="left:79.915%;top:68.182%" id="frday"></div>
  <button class="f-hit" style="left:66.419%;top:66.986%;width:25%;height:5.2%" id="frdayb" aria-label="આખો દિવસ"></button>
@@ -649,7 +648,7 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  else if(cur){lab="હમણાં ચાલુ છે";const[t1,t2]=split(cur.a);na=t1;ns=[cur.v,cur.e===1439?t12(cur.s)+" પછી":dur(cur.E-T)+" બાકી"].filter(Boolean).join(" • ");im=img(cur.a)}
  else if(nx){na="થોડો વિરામ";ns="હવે પછીનો કાર્યક્રમ "+dur(nx.S-T)+" પછી";im="k/vishram.webp"}
  else{lab="શિબિર";na="બધા કાર્યક્રમ પૂરા થયા";ns="સૌનો આભાર. જય સ્વામિનારાયણ";im="k/ashirvad.webp"}
- $("frlab").textContent=lab;$("frna").textContent=na;$("frns").textContent=ns;fitText($("frna"),400);fitText($("frns"),400);
+ $("frlab").textContent=lab;$("frna").textContent=na;$("frns").textContent=ns;fitText($("frna"),370);fitText($("frns"),370);
  const ii=$("frimg").querySelector("img");if(ii.getAttribute("src")!==im)ii.src=im;
  if(nx){const[t1]=split(nx.a);$("frxk").textContent="હવે પછી, "+dur(nx.S-T)+" પછી";$("frxv").textContent=t1;$("frxs").textContent=(nx.d!==day?WDS[new Date(Date.UTC(2026,10,nx.d)).getUTCDay()]+", ":"")+t12(nx.s);fitText($("frxv"),440);fitText($("frxk"),440)}
  else{$("frxk").textContent="";$("frxv").textContent="બધા કાર્યક્રમ પૂરા";$("frxs").textContent=""}
