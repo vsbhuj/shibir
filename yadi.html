@@ -299,6 +299,12 @@ table{color:#fff}th{background:rgba(255,255,255,.12)!important;color:#FFE7A3!imp
 .bnav *{color:#fff}
 .pr.now{background:linear-gradient(90deg,rgba(255,224,138,.4),rgba(245,183,0,.12))!important;box-shadow:inset 4px 0 0 #F5B700}
 .pr.done{opacity:.55}
+
+/* ===== read-only (જોવા માટે જ) ===== */
+.add,.edit,.ed,#p-rooms .toolbar .btn,#p-sevas .toolbar .btn,.toolbar .hint,#roomHint,button[onclick^="resetAll"],button[onclick^="openSaintSevas"],label.btn,.card:has(input[type=file]){display:none!important}
+button.x,.chip .x{display:none!important}
+.item{color:#2b1a12!important}
+select.rsel{pointer-events:none;-webkit-appearance:none;appearance:none;background-image:none!important}
 </style>
 </head>
 <body>
@@ -496,8 +502,8 @@ function presetState(){ const s = fresh(); Object.entries(PRESET_ROOMS).forEach(
 const KEY = 'mahamantraShibir_v3';
 let state = load();
 function fresh(){ return {rooms:{}, sevaList:JSON.parse(JSON.stringify(DEFAULT_SEVAS)), sevas:{}, menu:JSON.parse(JSON.stringify(DEFAULT_MENU))}; }
-function load(){ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return presetState(); }
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function load(){ return presetState(); try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d && d.rooms && d.sevaList){ if(!d.menu) d.menu = JSON.parse(JSON.stringify(DEFAULT_MENU)); return d; } }catch(e){} return presetState(); }
+function save(){ return; try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const short = n => n.replace(/^સ્વામી\s+/, '');
@@ -1168,6 +1174,11 @@ try{ if('serviceWorker' in navigator && location.hostname.endsWith('github.io'))
 const startTab = (location.hash||'').slice(1);
 go(TABS.some(t=>t[0]===startTab) ? startTab : 'home');
 window.addEventListener('hashchange',()=>{ const h=location.hash.slice(1); if(TABS.some(t=>t[0]===h) && !document.getElementById('p-'+h).classList.contains('on')) go(h); });
+</script>
+
+<script>
+/* read-only: nobody can change allocations from this page */
+['openPicker','savePicker','setRoom','editMeal','renameSeva','autoRooms','addSeva','resetAll','importXlsx','openSaintSevas','pkPick','pkToggle','pkAll'].forEach(f=>{try{window[f]=function(){}}catch(e){}});
 </script>
 </body>
 </html>
