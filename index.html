@@ -544,8 +544,10 @@ body[data-g="kids"]{--bg:#F5C4C4}body[data-g="youth"]{--bg:#FBE39C}body[data-g="
  <div class="ft f-day" style="left:79.915%;top:68.182%" id="frday"></div>
  <button class="f-hit" style="left:66.419%;top:66.986%;width:25%;height:5.2%" id="frdayb" aria-label="આખો દિવસ"></button>
  <a class="sntb" style="left:12.540%;top:67.105%;width:25.5%;height:5.4%" href="yadi.html"><span>👥 સંતો</span></a>
+ <button class="f-hit" style="left:10.627%;top:21.053%;width:82%;height:19.5%" id="hw" aria-label="હવામાન"></button>
  <button class="f-hit" style="left:11.158%;top:56.220%;width:82%;height:8.7%" id="hn" aria-label="આખો દિવસ"></button>
 </div></div>
+<div class="wxp" id="wxp"><div class="wxb"><div class="wxh"><b>🌤️ ભુજનું હવામાન</b><button id="wxx">✕</button></div><div id="wxl"></div><small>આગાહી: Open-Meteo</small></div></div>
 <style>
 .sky,#now,#nowlab,#next,#wx,#dprog,#note,#prevl,.fab,#qbar,#bell,.top .ctl{display:none!important}
 html,body{height:100%!important;overflow:hidden!important;overscroll-behavior:none!important;position:fixed;inset:0;width:100%}
@@ -619,6 +621,16 @@ body{background:linear-gradient(180deg,#273c5f 0%,#3a5180 50%,#415e8d 100%)!impo
 .sntb{position:absolute;display:flex;align-items:center;justify-content:center;color:#2a1a00;text-decoration:none;font-size:32em;font-weight:700;-webkit-tap-highlight-color:transparent}
 .sntb>span{white-space:nowrap}
 .barpatch{position:absolute;background:url(k/frame.webp) no-repeat;background-size:941em 1672em;background-position:-300em -1105em;-webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 96%,transparent);mask:linear-gradient(90deg,transparent,#000 5%,#000 96%,transparent)}
+
+.wxp{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;background:rgba(10,15,35,.45)}
+.wxp.on{display:flex}
+.wxb{width:min(100%,520px);max-height:80vh;overflow:auto;border-radius:26px 26px 0 0;padding:16px 16px 26px;color:#fff;font-family:"Hind Vadodara",HV,sans-serif;background:linear-gradient(180deg,#5a6fa6,#2c365c);border:1.5px solid rgba(255,255,255,.45);border-bottom:0;box-shadow:0 -20px 50px rgba(5,10,30,.5)}
+.wxh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.wxh b{font-size:1.25rem}
+.wxh button{width:38px;height:38px;border-radius:50%;border:1.5px solid #E3B55A;background:rgba(255,255,255,.14);color:#FFE7A3;font-size:1rem}
+.wxr{display:flex;align-items:center;gap:10px;margin:8px 0;padding:10px 12px;border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border:1.5px solid rgba(255,255,255,.3)}
+.wxr.td{background:linear-gradient(160deg,rgba(255,224,138,.45),rgba(245,183,0,.15));border-color:#FFE08A}
+.wxr .d{width:70px;font-weight:700}.wxr .i svg{width:34px;height:34px}.wxr .t{flex:1;font-size:.9rem}.wxr .t b{font-size:1.05rem}.wxr .ss{font-size:.75rem;opacity:.9;text-align:right;line-height:1.4}
+.wxb small{display:block;text-align:center;opacity:.7;margin-top:8px}
 </style>
 <script>
 (function(){
@@ -663,9 +675,16 @@ function draw(){const n=now(),d=new Date(n+OFF),day=d.getUTCDate(),mon=d.getUTCM
  try{if(typeof sunFor==="function")sr=sunFor(day)}catch(e){}
  $("frwv").textContent=W?`${gd(W.hi)}° / ${gd(W.lo)}°, વરસાદ ${gd(W.r)}%`:"ભુજ";$("frws").textContent=W?W.gu:(navigator.onLine?"હવામાન મેળવાય છે…":"નેટ ચાલુ કરો");fitText($("frwv"),420);
  $("frsr").textContent=sr?"સૂર્યોદય "+t12(sr[0]):"";$("frss").textContent=sr?"સૂર્યાસ્ત "+t12(sr[1]):""}
+
+function openWx(){const d=new Date(now()+OFF),day=d.getUTCDate();let h="";
+ const K=(typeof WX!=="undefined")?Object.keys(WX).map(Number).sort((a,b)=>a-b):[];
+ if(!K.length)h='<p style="text-align:center;padding:20px">હવામાન મળ્યું નથી. નેટ ચાલુ કરીને ફરી ખોલો.</p>';
+ K.forEach(k=>{const w=WX[k];let sr=null;try{sr=sunFor(k)}catch(e){}
+  h+=`<div class="wxr${k===day?" td":""}"><div class="d">${WDS[new Date(Date.UTC(2026,10,k)).getUTCDay()]}<br><small style="display:inline;opacity:.85">${gd(k)} નવે.</small></div><div class="i">${(typeof ICON!=="undefined"&&ICON[w.i])||""}</div><div class="t"><b>${gd(w.hi)}° / ${gd(w.lo)}°</b><br>${w.gu}${w.r?", વરસાદ "+gd(w.r)+"%":""}</div>${sr?`<div class="ss">🌅 ${t12(sr[0])}<br>🌇 ${t12(sr[1])}</div>`:""}</div>`});
+ $("wxl").innerHTML=h;$("wxp").classList.add("on")}
 window.g3draw=draw;
-document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild($("fr"));size(true);addEventListener("resize",()=>{size(false)});addEventListener("orientationchange",()=>setTimeout(()=>size(true),300));
- const click=id=>()=>{const b=$(id);if(b)b.click()};$("hn").onclick=click("fab");$("frdayb").onclick=click("fab");
+document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild($("fr"));document.body.appendChild($("wxp"));document.body.appendChild($("wxp"));size(true);addEventListener("resize",()=>{size(false)});addEventListener("orientationchange",()=>setTimeout(()=>size(true),300));
+ const click=id=>()=>{const b=$(id);if(b)b.click()};$("hn").onclick=click("fab");$("frdayb").onclick=click("fab");$("hw").onclick=openWx;$("wxx").onclick=()=>$("wxp").classList.remove("on");$("wxp").onclick=e=>{if(e.target.id==="wxp")$("wxp").classList.remove("on")};
  if(typeof showDar==="function"){const o=showDar;window.showDar=showDar=function(c){o(c);const a=document.querySelector("#darin .dart");if(a)a.outerHTML=`<div class="gimg"><img src="${img(c.a)}" alt=""></div>`}}
  draw();setInterval(draw,20000)});
 })();
